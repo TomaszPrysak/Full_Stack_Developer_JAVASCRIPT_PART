@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>How to connect JavaScript to Webside</title>
+
+    <!-- Tak jak w przypadku stylów CSS, tak samo skrypty JavaScript podpianymy jako pliki JS bądź piszemy bezpośrednio w kodzie HTML.
+
+    Do zamieszczenia skryptów JS wykorzystujemy znacznik SCRIPT. Jest on zarówno otwierający i zamykający.
+
+    Jeżeli chcemy podpiąć zewnętrzny plik JS wykorzystujemy znacznik SCRIPT z atrybutem SRC gdzie wpisujemy względny adres naszego pliku JS (względny to znaczy, względem lokalizacji naszego pliku HTML).
+    Wówczac pomiędzy znacznikami nic nie wpisujemy. Od razu zamykamy zniacznik.
+
+    Jeżeli chcemy pisać skrypt bezpośrednio w kodzie HTML również wykorzystujemy znacznik SCRIPT.
+    Wówczas między znacznikiem otwierającym i zamykającym piszemy nasz kod JS. To co występowałoby w zewnętrznym pliku.
+
+    Kolejną rzeczą na którą trzeba zwrócić uwagę jest miejsce podpiniania plików JS bądź pisania skryptów JS w kodzie HTML:
+
+    1. Pomiędzy znacznikami HEAD:
+
+    1a. Podpinanie zewnętrznego pliku JS -->
+    <script src="myscript.js"></script>
+
+    <!-- 1b. Pisanie skryptów bezpośrednio w kodzie HTML -->
+    <script>
+      alert("Welcome to your Bank!")
+      var deposit = prompt("How much would you like to deposit today ?")
+      alert("You've deposited: " + deposit + " USD")
+      console.log("You are a coll person!")
+    </script>
+
+    <style>
+      body{
+        background-color: orange;
+      }
+      h1{
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Welcome to your Bank!</h1>
+
+    <!-- 2. Tuż przed znacznikiem zamykający </BODY>:
+
+    2a. Podpinanie zewnętrznego pliku JS -->
+    <script src="myscript.js"></script>
+
+    <!-- 2b. Pisanie skryptów bezpośrednio w kodzie HTML -->
+    <script>
+      alert("Welcome to your Bank!")
+      var deposit = prompt("How much would you like to deposit today ?")
+      alert("You've deposited: " + deposit)
+      console.log("You are a coll person!")
+    </script>
+
+    <!-- UWAGA ! Ponieważ dla pokazania jakie są sposoby łączenia kodu JavaScript z HTML zastosowano podpięcie pliku JS oraz umieszczenie kodu bezpośrednio w HTML.
+                 W związku z tym, że nie zakomentowano jednego bądź drugiego sposobu kod JavaScript (zarówno w HEAD oraz przed </BODY>) będzie wykonany cztery razy zanim się załaduje reszta strony.
+
+    Miejsce zamieszczenia sktyptu w kodzie HTML ma bardzo istotne znaczenie. Czy to będzie w HEAD czy przed </BODY>.
+    W momencie kiedy skrypt jest pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
+    W momencie kiedy skrypt jest przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
+    Są polecenia w JavaScript które zawsze są wykonywane na samym początku ładowania strony, zanim jeszcze wczyta się treść strony. I nie ma znaczenia czy są w HEAD czy przed </BODY>
+
+    W tym pliku HTML użyte zostały skrypty które zawsze będą się ładowały przed treścią strony. Kod HTML i CSS jest wykonywany później.
+    Zastosowano tło pomarańczowe i kolor czcionki, nagłówka H1, czerwony. Jednak w kodzie JS zastosowano wyświetlenie komunikatu przy ładowaniu strony.
+    A więc zamiast zostanie załadowana treść i kolory strony pojawi się komunikat z kod JS. Mimo, że tło strony jest pomarańczowe, komunikat pojawi się na białej, pozbawionej treści strony. -->
+
+  </body>
+</html>

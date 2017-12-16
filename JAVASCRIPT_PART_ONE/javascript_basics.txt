@@ -3,6 +3,12 @@ Do tej pory używając połączenia HTML i CSS mieliśmy możliwość tworzenia 
 Wykorzystując Bootstrap poznaliśmy co możemy uzyskać za pomocą JavaScript. Tam używaliśmy go do rozwijanego przycisku w Navbar.
 Właśnie do takich rzeczy służy JavaScript. Dodaje dynamiki do naszych stron. Przykłąd z rozwijanym menu pod przuciskiem to tylko przykład.
 
+JavaScript może dodawać, usuwać znaczniki wraz z zawartością tzn. treścią.
+JavaScript może modyfikować zawartość, treść między znacznikami.
+JavaScript może dokonywać modyfikacji atrybutów, dodawać, je usuwać itd.
+Wszystko to co występuje w kodzie HTML: znaczniki, ich atrybuty itd mogą być dodawane, usuwane, zmieniane przez JavaScript.
+Powoduje to bardzo ważną użyteczność JavaScript. Mamy wpływ na wszystko co się najduje w kodzie HTML.
+
 JavaScript możemy używać na następujące sposoby:
 1. Bezpośrednio z konsoli przeglądarki internetowej. Uruchamianie konsoli dla Google Chrome: PPM > Zbadaj > Console,
 2. Za pomocą plików *.js podpinanych w pliku HTML,
@@ -72,14 +78,27 @@ Ad. 1. Konsola przeglądarki
 Ad. 2. i 3. Pliki JS podpięte w kodzie HTML. Skrypt JS bezpośrednio w kodzie HTML
 ---------------------------------------------------------------------------------
 
-Tak jak w przypadku plików CSS, tak samo pliki ze skryptamy JavaScript podpianymy w sekcji HEAD pliku HTML.
-Jednak dla skryptów wykorzystujemy znacznik SCRIPT z atrybutem SRC gdzie wpisujemy względny adres naszego pliku JS (względny to znaczy, względem lokalizacji naszego pliku HTML)
+Tak jak w przypadku stylów CSS, tak samo skrypty JavaScript podpianymy jako pliki JS bądź piszemy bezpośrednio w kodzie HTML.
 
-Znacznik SCRIPT jest zarówno otwierający jak i zamykający.
-Jeżeli piszemy skrypty w osobnym pliku JS i wskacujemy w atrybucie SRC adres do niego wówczas pomiędzy znacnzikami nic nie ma.
-Natomiast, jeżeli chcemy nasze skrypty pisać w kodzie HTML, wówczas dokonujemy tego właśnie pomiędzy tymi znacznikami.
+Do zamieszczenia skryptów JS wykorzystujemy znacznik SCRIPT. Jest on zarówno otwierający i zamykający.
 
-Przykład tego jak podpinać pliki zewnętrzne JS oraz pisać bezpośrednio w kodzie znajduje się w pliku "javascript_connecting.
+Jeżeli chcemy podpiąć zewnętrzny plik JS wykorzystujemy znacznik SCRIPT z atrybutem SRC gdzie wpisujemy względny adres naszego pliku JS (względny to znaczy, względem lokalizacji naszego pliku HTML).
+Wówczac pomiędzy znacznikami nic nie wpisujemy. Od razu zamykamy zniacznik.
 
-UWAGA ! Jeżeli podpinamy plik JS bądź piszemy kod JavaScript bezpośrednio w HTML wówczas w momencie ładowania strony internetowej NA POCZĄTKU wykonywany jest kod JavaScript, a dopiero później ładowana jest treści strony wraz ze stylizowaniem CSS.
-        Świadczy to nic innego, że zanim zobaczymy treść strony jest wykoywany kod JavaScript. Jeżeli umieściliśmy w JS wyświetle alertu, wówczas najpierw pojawi się ten alert a dopiero później treść strony. Alert pojawi się na tle białej, pustej strony.
+Jeżeli chcemy pisać skrypt bezpośrednio w kodzie HTML również wykorzystujemy znacznik SCRIPT.
+Wówczas między znacznikiem otwierającym i zamykającym piszemy nasz kod JS. To co występowałoby w zewnętrznym pliku.
+
+Kolejną rzeczą na którą trzeba zwrócić uwagę jest miejsce podpiniania plików JS bądź pisania skryptów JS w kodzie HTML:
+
+1. Pomiędzy znacznikami HEAD:
+1a. Podpinanie zewnętrznego pliku JS
+1b. Pisanie skryptów bezpośrednio w kodzie HTML
+
+2. Tuż przed znacznikiem zamykający </BODY>:
+2a. Podpinanie zewnętrznego pliku JS
+2b. Pisanie skryptów bezpośrednio w kodzie HTML
+
+Miejsce zamieszczenia sktyptu w kodzie HTML ma bardzo istotne znaczenie. Czy to będzie w HEAD czy przed </BODY>.
+W momencie kiedy skrypt jest pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
+W momencie kiedy skrypt jest przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
+Są polecenia w JavaScript które zawsze są wykonywane na samym początku ładowania strony, zanim jeszcze wczyta się treść strony. I nie ma znaczenia czy są w HEAD czy przed </BODY>
