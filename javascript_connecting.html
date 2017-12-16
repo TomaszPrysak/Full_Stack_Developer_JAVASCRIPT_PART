@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- Tak jak w przypadku plików CSS, tak samo pliki ze skryptamy JavaScript podpianymy w sekcji HEAD pliku HTML.
+    Jednak dla skryptów wykorzystujemy znacznik SCRIPT z atrybutem SRC gdzie wpisujemy względny adres naszego pliku JS (względny to znaczy, względem lokalizacji naszego pliku HTML)
+
+    Znacznik SCRIPT jest zarówno otwierający jak i zamykający.
+    Jeżeli piszemy skrypty w osobnym pliku JS i wpisujemy w atrybucie SRC adres do niego wówczas pomiędzy znacnzikami nic nie ma.
+    Natomiast, jeżeli chcemy nasze skrypty pisać bezpośrednio w kodzie HTML, wówczas dokonujemy tego właśnie pomiędzy tymi znacznikami. -->
+
+    <!-- 1. Poniżej sposób - podpinanie zewnętrznego pliku JS -->
+    <script src="myscript.js"></script>
+
+    <!-- 2. Poniżej sposób - pisanie skryptów bezpośrednio w kodzie HTML -->
+    <script>
+      alert("Welcome to your Bank!")
+      var deposit = prompt("How much would you like to deposit today ?")
+      alert("You've deposited: " + deposit)
+      console.log("You are a coll person!")
+    </script>
+
+    <!-- UWAGA ! Ponieważ dla pokazania jakie są sposoby łączenia kodu JavaScript z HTML zastosowano podpięcie pliku JS oraz umieszczenie kodu bezpośrednio w HTML.
+                 W związku z tym, że nie zakomentowano jednego bądź drugiego sposobu kod JavaScript będzie wykonany dwa razy zanim się załaduje reszta strony. -->
+
+    <!-- Umieszczono stylizację strony aby pokazać, że kod JavaScript czy to w zewnętrznym pliku, czy to pisany w HTML, jest wykonywany jako pierwszy podczas ładowania strony. Kod HTML i CSS jest wykonywany później.
+    Zastosowano tło pomarańczowe i kolor czcionki, nagłówka H1, czerwony. Jednak w kodzie JS zastosowano wyświetlenie komunikatu przy ładowaniu strony.
+    A więc zamiast zostanie załadowana treść i kolory strony pojawi się komunikat z kod JS. Mimo, że tło strony jest pomarańczowe, komunikat pojawi się na białej, pozbawionej treści strony.  -->
+    <style>
+      body{
+        background-color: orange;
+      }
+      h1{
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Welcome to your Bank!</h1>
+
+  </body>
+</html>
