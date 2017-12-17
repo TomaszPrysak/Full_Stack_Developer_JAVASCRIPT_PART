@@ -1,0 +1,117 @@
+JavaScript umożliwia tworzenie dynamicznych stron internetowych.
+Do tej pory używając połączenia HTML i CSS mieliśmy możliwość tworzenia ładnych, jednak statycznych stron internetowych.
+Wykorzystując Bootstrap poznaliśmy co możemy uzyskać za pomocą JavaScript. Tam używaliśmy go do rozwijanego przycisku w Navbar.
+Właśnie do takich rzeczy służy JavaScript. Dodaje dynamiki do naszych stron. Przykłąd z rozwijanym menu pod przuciskiem to tylko przykład.
+
+JavaScript może dodawać, usuwać znaczniki HTML wraz z zawartością tzn. treścią.
+JavaScript może modyfikować zawartość, treść między znacznikami.
+JavaScript może dokonywać modyfikacji atrybutów, dodawać, je usuwać itd.
+Wszystko to co występuje w kodzie HTML: znaczniki, ich atrybuty itd mogą być dodawane, usuwane, zmieniane przez JavaScript.
+Powoduje to bardzo ważną użyteczność JavaScript. Mamy wpływ na wszystko co się najduje w kodzie HTML.
+
+JavaScript możemy używać na następujące sposoby:
+1. Bezpośrednio z konsoli przeglądarki internetowej. Uruchamianie konsoli dla Google Chrome: PPM > Zbadaj > Console,
+2. Za pomocą plików *.js podpinanych w pliku HTML,
+3. Bądź pisania skryptów bezpośrednio w kodzie HTML.
+
+Ad. 1. Konsola przeglądarki
+---------------------------
+ Używając konsli w przeglądarce wszystko co napiszepmy po dwukrotnym ukośniku (//) jest traktowane jako komentarz.
+
+ Po wpisaniu polecenia w konsoli albo zwracana jest wartość, tuż pod naszym poleceniem, albo wykonywana jest akcja z przeglądarką, np.: wyskakuje okienko informacyjne, okienko do prowadzania danych przez użytkownika itd.
+
+
+Ad. 2. i 3. Pliki JS podpięte w kodzie HTML. Skrypt JS bezpośrednio w kodzie HTML
+---------------------------------------------------------------------------------
+ Tak jak w przypadku stylów CSS, tak samo skrypty JavaScript podpianymy jako pliki JS bądź piszemy bezpośrednio w kodzie HTML.
+
+ Do zamieszczenia skryptów JS wykorzystujemy znacznik SCRIPT. Jest on zarówno otwierający i zamykający.
+
+ Jeżeli chcemy podpiąć zewnętrzny plik JS wykorzystujemy znacznik SCRIPT z atrybutem SRC gdzie wpisujemy względny adres naszego pliku JS (względny to znaczy, względem lokalizacji naszego pliku HTML).
+ Wówczac pomiędzy znacznikami nic nie wpisujemy. Od razu zamykamy zniacznik.
+
+ Jeżeli chcemy pisać skrypt bezpośrednio w kodzie HTML również wykorzystujemy znacznik SCRIPT.
+ Wówczas między znacznikiem otwierającym i zamykającym piszemy nasz kod JS. To co występowałoby w zewnętrznym pliku.
+
+ Kolejną rzeczą na którą trzeba zwrócić uwagę jest miejsce podpiniania plików JS bądź pisania skryptów JS w kodzie HTML:
+
+ 1. Pomiędzy znacznikami HEAD:
+ 1a. Podpinanie zewnętrznego pliku JS
+ 1b. Pisanie skryptów bezpośrednio w kodzie HTML
+
+ 2. Tuż przed znacznikiem zamykający </BODY>:
+ 2a. Podpinanie zewnętrznego pliku JS
+ 2b. Pisanie skryptów bezpośrednio w kodzie HTML
+
+ Miejsce zamieszczenia sktyptu w kodzie HTML ma bardzo istotne znaczenie. Czy to będzie w HEAD czy przed </BODY>.
+ W momencie kiedy skrypt jest pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
+ W momencie kiedy skrypt jest przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
+ Są polecenia w JavaScript które zawsze są wykonywane na samym początku ładowania strony, zanim jeszcze wczyta się treść strony. I nie ma znaczenia czy są w HEAD czy przed </BODY>
+
+-----------
+TYPY DANYCH
+-----------
+Podstawowe typy danych w JavaScript są bardzo podobne (z niewielkimi różnicami) do tych używanych w innych językach prograowania:
+1. Liczbowe (Numbers), np.: 10, 20.8, -13.77
+   UWAGA ! W przeciwieństwie do innych języków programowania, np.: Python, Java itd, w JavaScript nie ma podziału na liczby całkowite, zmiennoprzecinkowe, ujemne itd.    Po prostu są to liczby i nie musimy deklarować rodzaju zmiennej liczbowej.
+2. Ciągi znaków (Strings), np.: "Hello", "10.5"
+   UWAGA ! Są to po prostu ciągi znaków, zawarte między cudzysłowem. Wszysctko co jest w cudzysłowach jest Stringiem. Nawet jeżeli są to liczby. Wówczas są traktowane jako ciąg znaków a nie liczbą. Inaczej się je wówczas porównuje.
+3. Wartości logiczne (Boolean), true - prawda, false - fałsz.
+4. UWAGA ! Są jeszcze undefined oraz null.
+
+--------------------
+OPERACJE NA LICZBACH
+--------------------
+Podstawowe operacje na liczbach (Numbers):
+1. Dodawanie, np.: 2 + 2 = 2,
+2. Odejmowanie, np.: 5-1 = 4,
+3. Mnożenie, np.: 3*2 = 6,
+4. Dzielenie, np.: 5/4 = 1.25,
+5. Potęgowanie, np.: 2**5 = 32,
+6. Modulo (reszta z dzielenia), 5%4 = 1,
+
+--------------------------
+OPERACJE NA CIĄGACH ZNAKÓW
+--------------------------
+Podstawowe operacje na ciągach znaków (Strings):
+1. Każdemu elementowi należącemu do String przypisany jest indeks, począwszy od 0 dla pierwszego znaku,
+   W celu zwrucenia znaku spod konkretnego indeksu musimy po Stringu zapisany w cudzysłowiu użyć nawiasu kwadratowego i wpisać interesujący nas indeks. Wiedząc, żę pierwszy znak ma indeks = 0.
+   Np. "test"[1] - zwróci - e
+2. Możemy łączyć ze sobą ciągi znaków po prostu pisząc "xxx" + "yyy", wówczas zwrócone zotanie "xxxyyy",
+3. Możemy mierzyć długość ciągu znaków, pisząć po tym ciągu .length: "xxx".length, wówczas zwracana jest liczba długości ciągu. UWAGA ! Wliczane są białe znaki,
+4. W ciągach znaków możemy stosować znaki specjalne, które pomimo, że będą znajdowały się pomiędzy cudzysłowem to będą odczytywane jako coś specjalnego.
+   Np.: \n - start z nowej linii, wówczas tekst napisany po tym znaku będzie od nowej linii
+        \t - tabulator , wówczas tekst pisany po tym znaku będzie pisany po tabulatorze,
+        \" - znak informujący konsolę, że w środku Stringu znajduje się cudzyszłów i należy go pominąć. Jeżeli byśmy tego nie użyli wówczas konsola by rozpoznała tekst do pierwszego cudzysłowia.
+
+-------
+ZMIENNE
+-------
+Zmienne deklarujemy poprzez słówko - var - przed nazwą zmiennej, nastepnie po znaku równa - = - się wpisujemy jej wartość i na końcu średnik - ;. Nazwy zmiennych w JavaScript, jak i w innych językach programowania, nadajemy według zasady camelStyle.
+var varName = value;
+Np.: var bankAccount = 100; - do zmiennej bankAccount przypisaliśmy wartość 100. Jeżeli napiszemy w konsoli po prostu nazwę zmiennej to zwróci nam jej wartość.
+Zmienną mogą być rownież ciągni znaków (Strings).
+Np.: var name = "Tomek; - do zmiennej przypisałem tekst "Tomek"
+Nie deklarujemy rodzaju zmiennej. Słówko var oznacza zarówno zmienną Tekstową jak i Liczbową.
+Możemy tworzyć kilka zmiennych. Możemy później je dodawać ze sobą za pomocą ich nazw a nie wartości.
+Możem nazw zmiennych używać w innych poleceniach, na przykłąd razem z ".length", np.: sister.length albo "alert", np.: alert(sister) itd.
+Jeżeli stworzymy zmienną, ale nie nadamy jej wartości wówczas zostanie przypisana jej wartość typu undefine, po prostu stworzyliśmy zmienną, ale bez nadania jej wartości.
+Np.: var test; - rezerwujemy sobie nazwę zmiennej
+Jeżeli stworzymy zmienną i nadamy jej wartość null wówczas oznacza to, że zmiennej przypisaliśmy wartość która będzie przez system odczytywana jako "nic".
+Np.: var test = null;
+
+--------------------
+PODSTAWOWE POLECENIA
+--------------------
+Podstawowe polecenia JavaScript:
+alert("xxx") / alert(varName) - wyskakuje okienko przeglądarki z komunikatem zawartym w nawiasie,
+clear() - czyści konsolę przeglądarki,
+"xx".length / varName.length - zwraca długość ciągu znaków,
+"xxx".slice(x,y) / varName.slice(x,y) - wycinanie kawałka ciągu znaków z dłuższego tekstu, Stringu. W tym celu podajemy początek wycięcia - x - oraz koniec - y. Przy czym y nie zalicza się do nowego łańcucha znaków.
+"test"[X] / varname[x] - zwraca znak spod indeksu X dla Stringu: test,
+prompt("Enter your name") / prompt(varName) - wyskakuje okienko z pole do uzupełnienia przez użytkownika,
+                                              możemy to polecenie wykorzystac, aby przypisać do zmiennej jakąś wartość podaną przez użytkownika,
+                                              np.: var age = prompt("Enter your age");
+                                              UWAGA ! zmienne tak zapisywane są typu String,
+console.log("xxx") - wypisywanie na konsoli tego co jest w nawiasie. Polecenie to może nie mieć sensu w momencie kiedy korzystamy do pisania kodu JavaScript z konsoli przeglądarki, ponieważ wszystkie polecenia które powodują zwracanie na konsole, są tam zwracane.
+                    Jednak polecenie to ma istotne znaczenie kiedy podpinamy w kodzie HTML plik z JavaScript. Wówczas w kod jest wykonywany z zewnętrzenego pliku i dopiero kiedy użyjemy tego polecenia to wynik zostanie zwrócony w konsoli. Aby to zobaczyć musimy otworzyć konsolę przeglądarki.
