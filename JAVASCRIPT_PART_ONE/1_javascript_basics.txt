@@ -1,7 +1,7 @@
 JavaScript umożliwia tworzenie dynamicznych stron internetowych.
 Do tej pory używając połączenia HTML i CSS mieliśmy możliwość tworzenia ładnych, jednak statycznych stron internetowych.
 Wykorzystując Bootstrap poznaliśmy co możemy uzyskać za pomocą JavaScript. Tam używaliśmy go do rozwijanego przycisku w Navbar.
-Właśnie do takich rzeczy służy JavaScript. Dodaje dynamiki do naszych stron. Przykłąd z rozwijanym menu pod przuciskiem to tylko przykład.
+Właśnie do takich rzeczy służy JavaScript. Dodaje dynamiki do naszych stron. Przykład z rozwijanym menu pod przyciskiem to tylko przykład.
 
 JavaScript może dodawać, usuwać znaczniki HTML wraz z zawartością tzn. treścią.
 JavaScript może modyfikować zawartość, treść między znacznikami.
@@ -44,16 +44,16 @@ Ad. 2. i 3. Pliki JS podpięte w kodzie HTML. Skrypt JS bezpośrednio w kodzie H
  2b. Pisanie skryptów bezpośrednio w kodzie HTML
 
  Miejsce zamieszczenia sktyptu w kodzie HTML ma bardzo istotne znaczenie. Czy to będzie w HEAD czy przed </BODY>.
- W momencie kiedy skrypt jest pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
- W momencie kiedy skrypt jest przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
- Są polecenia w JavaScript które zawsze są wykonywane na samym początku ładowania strony, zanim jeszcze wczyta się treść strony. I nie ma znaczenia czy są w HEAD czy przed </BODY>
+ W momencie kiedy skrypt jest podpinany pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
+ W momencie kiedy skrypt jest podpinany przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
+ Są polecenia w JavaScript które zawsze są wykonywane na samym początku ładowania strony, zanim jeszcze wczyta się treść strony. I nie ma znaczenia czy są podpinane w HEAD czy przed </BODY>
 
 -----------
 TYPY DANYCH
 -----------
 Podstawowe typy danych w JavaScript są bardzo podobne (z niewielkimi różnicami) do tych używanych w innych językach prograowania:
 1. Liczbowe (Numbers), np.: 10, 20.8, -13.77
-   UWAGA ! W przeciwieństwie do innych języków programowania, np.: Python, Java itd, w JavaScript nie ma podziału na liczby całkowite, zmiennoprzecinkowe, ujemne itd.    Po prostu są to liczby i nie musimy deklarować rodzaju zmiennej liczbowej.
+   UWAGA ! W przeciwieństwie do innych języków programowania, np.: Python, Java itd, w JavaScript nie ma podziału na liczby całkowite, zmiennoprzecinkowe, ujemne itd. Po prostu są to liczby i nie musimy deklarować rodzaju zmiennej liczbowej.
 2. Ciągi znaków (Strings), np.: "Hello", "10.5"
    UWAGA ! Są to po prostu ciągi znaków, zawarte między cudzysłowem. Wszysctko co jest w cudzysłowach jest Stringiem. Nawet jeżeli są to liczby. Wówczas są traktowane jako ciąg znaków a nie liczbą. Inaczej się je wówczas porównuje.
 3. Wartości logiczne (Boolean), true - prawda, false - fałsz.
@@ -87,7 +87,7 @@ Podstawowe operacje na ciągach znaków (Strings):
 -------
 ZMIENNE
 -------
-Zmienne deklarujemy poprzez słówko - var - przed nazwą zmiennej, nastepnie po znaku równa - = - się wpisujemy jej wartość i na końcu średnik - ;. Nazwy zmiennych w JavaScript, jak i w innych językach programowania, nadajemy według zasady camelStyle.
+Zmienne deklarujemy poprzez słówko (var) przed nazwą zmiennej, nastepnie po znaku równa (=) się wpisujemy jej wartość i na końcu średnik (;). Nazwy zmiennych w JavaScript, jak i w innych językach programowania, nadajemy według zasady camelStyle.
 var varName = value;
 Np.: var bankAccount = 100; - do zmiennej bankAccount przypisaliśmy wartość 100. Jeżeli napiszemy w konsoli po prostu nazwę zmiennej to zwróci nam jej wartość.
 Zmienną mogą być rownież ciągni znaków (Strings).
@@ -96,7 +96,7 @@ Nie deklarujemy rodzaju zmiennej. Słówko var oznacza zarówno zmienną Tekstow
 Możemy tworzyć kilka zmiennych. Możemy później je dodawać ze sobą za pomocą ich nazw a nie wartości.
 Możem nazw zmiennych używać w innych poleceniach, na przykłąd razem z ".length", np.: sister.length albo "alert", np.: alert(sister) itd.
 Jeżeli stworzymy zmienną, ale nie nadamy jej wartości wówczas zostanie przypisana jej wartość typu undefine, po prostu stworzyliśmy zmienną, ale bez nadania jej wartości.
-Np.: var test; - rezerwujemy sobie nazwę zmiennej
+Np.: var test; - rezerwujemy sobie nazwę zmiennej.
 Jeżeli stworzymy zmienną i nadamy jej wartość null wówczas oznacza to, że zmiennej przypisaliśmy wartość która będzie przez system odczytywana jako "nic".
 Np.: var test = null;
 
@@ -107,11 +107,11 @@ Podstawowe polecenia JavaScript:
 alert("xxx") / alert(varName) - wyskakuje okienko przeglądarki z komunikatem zawartym w nawiasie,
 clear() - czyści konsolę przeglądarki,
 "xx".length / varName.length - zwraca długość ciągu znaków,
-"xxx".slice(x,y) / varName.slice(x,y) - wycinanie kawałka ciągu znaków z dłuższego tekstu, Stringu. W tym celu podajemy początek wycięcia - x - oraz koniec - y. Przy czym y nie zalicza się do nowego łańcucha znaków.
+"xxx".slice(x,y) / varName.slice(x,y) - wycinanie kawałka ciągu znaków z dłuższego tekstu, Stringu. W tym celu podajemy początek wycięcia (x) oraz koniec (y). Przy czym y nie zalicza się do nowego łańcucha znaków. Jeżeli podamy tylko początek wycięcia (x) wówczas teskst zostanie wycięty od x do końca.
 "test"[X] / varname[x] - zwraca znak spod indeksu X dla Stringu: test,
-prompt("Enter your name") / prompt(varName) - wyskakuje okienko z pole do uzupełnienia przez użytkownika,
+prompt("Enter your name") / prompt(varName) - wyskakuje okienko z polem do uzupełnienia przez użytkownika,
                                               możemy to polecenie wykorzystac, aby przypisać do zmiennej jakąś wartość podaną przez użytkownika,
                                               np.: var age = prompt("Enter your age");
                                               UWAGA ! zmienne tak zapisywane są typu String,
 console.log("xxx") - wypisywanie na konsoli tego co jest w nawiasie. Polecenie to może nie mieć sensu w momencie kiedy korzystamy do pisania kodu JavaScript z konsoli przeglądarki, ponieważ wszystkie polecenia które powodują zwracanie na konsole, są tam zwracane.
-                    Jednak polecenie to ma istotne znaczenie kiedy podpinamy w kodzie HTML plik z JavaScript. Wówczas w kod jest wykonywany z zewnętrzenego pliku i dopiero kiedy użyjemy tego polecenia to wynik zostanie zwrócony w konsoli. Aby to zobaczyć musimy otworzyć konsolę przeglądarki.
+                     Jednak polecenie to ma istotne znaczenie kiedy podpinamy w kodzie HTML plik z JavaScript. Wówczas w kod jest wykonywany z zewnętrzenego pliku i dopiero kiedy użyjemy tego polecenia to wynik zostanie zwrócony w konsoli. Aby to zobaczyć musimy otworzyć konsolę przeglądarki.

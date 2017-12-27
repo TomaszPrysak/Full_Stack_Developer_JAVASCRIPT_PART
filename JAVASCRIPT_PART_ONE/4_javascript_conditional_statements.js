@@ -8,7 +8,7 @@
 
 // Składnia instrukcji:
 // if (warunek){
-//     //wykonywany kod, jeżeli warunek = true
+//     # wykonywany kod, jeżeli warunek = true
 // }
 
 // Konstrukcja ta służy do wykonywania kodu który znajduje się pomiędzy nawiasami klamrowymi.
@@ -46,9 +46,9 @@ console.log(hot) // wyśweitlona w konsoli przeglądarki będzie wartość true
 
 // Składnia instrukcji:
 // if (warunek) {
-//   // wykonywany kod jeżeli warunek = true
+//   # wykonywany kod jeżeli warunek = true
 // } else {
-//   // wykonywany kod jeżeli warunek = false
+//   # wykonywany kod jeżeli warunek = false
 // }
 
 temp = 30 // nadajemy zmiennej wartość 30
@@ -56,7 +56,7 @@ temp = 30 // nadajemy zmiennej wartość 30
 if (temp > 90){ // sprawdzamy czy temp jest większe od 90
     console.log("Hot outside!") // nie jest więc ten kod jest pomijany
 } else{
-    console.log("Its not too hot today!") // ten kod będzie wykonany ponieważ warunek nie został spełniony
+    console.log("It's not too hot today!") // ten kod będzie wykonany ponieważ warunek nie został spełniony
 }
 
 // ELSE IF
@@ -65,19 +65,19 @@ if (temp > 90){ // sprawdzamy czy temp jest większe od 90
 // Dzięki else if dostajemy możliwość sprawdzania kilku warunków i wykonywania kodu w zależności od spełnienia jednego z nich.
 // Możemy również tutaj użyć na smaym końcu zwykłego else którego kod będzie wykonywany że jeżeli żaden z warunków nie zostanie spełniony.
 // Oczywiście możemy użyć else, ale nie musimy.
-// Dzięki temu dostajemy szerowkie narzędzie do kontrolowania kodu i sprwawdzania kilku warunków.
+// Dzięki temu dostajemy szerokie narzędzie do kontrolowania kodu i sprwawdzania kilku warunków.
 
 // Składnia instrukcji:
 // if (warunek1) {
-//   // wykonywany kod, jeżeli warunek1 = true
+//   # wykonywany kod, jeżeli warunek1 = true
 // } else if (warunek2) {
-//   // wykonywany kod, jeżeli warunek2 = true
+//   # wykonywany kod, jeżeli warunek2 = true
 // } else if (warunek3) {
-//   // wykonywany kod, jeżeli warunek3 = treue
+//   # wykonywany kod, jeżeli warunek3 = treue
 // } else if (warunek4) {
-//   // wykonywany kod, jeżeli warunek4 = treue
+//   # wykonywany kod, jeżeli warunek4 = treue
 // } else {
-//   // wykonywany kod, jeżeli każdy z powyższych warunków = false
+//   # wykonywany kod, jeżeli każdy z powyższych warunków = false
 // }
 
 temp = 75 // nadajemy zmiennej wartość 30

@@ -6,7 +6,7 @@
 
     <!-- Tak jak w przypadku stylów CSS, tak samo skrypty JavaScript podpianymy jako pliki JS bądź piszemy bezpośrednio w kodzie HTML.
 
-    Do zamieszczenia skryptów JS wykorzystujemy znacznik SCRIPT. Jest on zarówno otwierający i zamykający.
+    Do zamieszczania skryptów JS wykorzystujemy znacznik SCRIPT. Jest on zarówno otwierający i zamykający.
 
     Jeżeli chcemy podpiąć zewnętrzny plik JS wykorzystujemy znacznik SCRIPT z atrybutem SRC gdzie wpisujemy względny adres naszego pliku JS (względny to znaczy, względem lokalizacji naszego pliku HTML).
     Wówczac pomiędzy znacznikami nic nie wpisujemy. Od razu zamykamy zniacznik.
@@ -60,13 +60,13 @@
                  W związku z tym, że nie zakomentowano jednego bądź drugiego sposobu kod JavaScript (zarówno w HEAD oraz przed </BODY>) będzie wykonany cztery razy zanim się załaduje reszta strony.
 
     Miejsce zamieszczenia sktyptu w kodzie HTML ma bardzo istotne znaczenie. Czy to będzie w HEAD czy przed </BODY>.
-    W momencie kiedy skrypt jest pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
-    W momencie kiedy skrypt jest przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
+    W momencie kiedy skrypt jest podpinany pomiędzy HEAD będzie wykonywany przed załadowaniem treści strony wraz ze stylami CSS.
+    W momencie kiedy skrypt jest podpinany przed znacznikiem </BODY> wówczas jest wykonywany już po załadowaniu treści strony wraz ze stylami.
     Są polecenia w JavaScript które zawsze są wykonywane na samym początku ładowania strony, zanim jeszcze wczyta się treść strony. I nie ma znaczenia czy są w HEAD czy przed </BODY>
 
     W tym pliku HTML użyte zostały skrypty które zawsze będą się ładowały przed treścią strony. Kod HTML i CSS jest wykonywany później.
     Zastosowano tło pomarańczowe i kolor czcionki, nagłówka H1, czerwony. Jednak w kodzie JS zastosowano wyświetlenie komunikatu przy ładowaniu strony.
-    A więc zamiast zostanie załadowana treść i kolory strony pojawi się komunikat z kod JS. Mimo, że tło strony jest pomarańczowe, komunikat pojawi się na białej, pozbawionej treści strony. -->
+    A więc zanim zostanie załadowana treść i kolory strony pojawi się komunikat z kodu JS. Mimo, że tło strony jest pomarańczowe, komunikat pojawi się na białej, pozbawionej treści strony. -->
 
   </body>
 </html>

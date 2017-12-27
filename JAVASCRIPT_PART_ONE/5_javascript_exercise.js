@@ -6,6 +6,8 @@ while (x < 5) {
   console.log("x is stile less then 5, add one to x");
   x = x + 1;
 }
+
+console.log("x is currentlu: " + x + " and I'm out the while loop");
 // ---------------------------------------------------
 // 2. Exercise
 var x = 0;
