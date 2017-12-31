@@ -8,7 +8,6 @@
 /////////////////
 
 // Use Loops to print (console.log()) out the word "hello" 5 times.
-//
 // Do this with a While Loop and a For Loop
 
 var hello_while = "HELLO - WHILE";
@@ -32,7 +31,7 @@ for (var i = 0; i < 5; i++) {
 ///////////////
 
 // Use Loops to print (console.log()) all the odd numbers from 1 to 25
-// Do this using two methods, a while loop and a for loop
+// Do this while loop and a for loop
 
 // While Loop
 var num = 1
