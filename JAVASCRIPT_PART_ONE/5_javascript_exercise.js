@@ -1,33 +1,31 @@
-// 1. Exercise
-var x = 0;
+var age = parseInt(prompt("Podaj jaki jest dzisiaj dzień tygodnia:\n1-poniedzialek\n2-wtorek\n3-środa\n4-czwartek\n5-piątek\n6-sobota\n7-niedziela")); // użytko dodatkowo zamiany stringu na integer ponieważ w momencie przechwytywania wartości podawanej przez użytkownika jest ona zapisywana jako typ tekstowy danych
 
-while (x < 5) {
-  console.log("x is currentlu: " + x);
-  console.log("x is stile less then 5, add one to x");
-  x = x + 1;
-}
+var text;
 
-console.log("x is currentlu: " + x + " and I'm out the while loop");
-// ---------------------------------------------------
-// 2. Exercise
-var x = 0;
-
-while (x < 5) {
-  console.log("x is currently: " + x);
-  if (x === 3) {
-    console.log("X IS EQUAL THERR");
+switch (age) {
+  case 1:
+    text = "Znowu poniedziałek... nieeeeeeee"
     break;
-  }
-  console.log("x is stile less then 5, add one to x");
-  x = x + 1;
+  case 2:
+    text = "Już nie płacz. Jest już wtorek."
+    break;
+  case 3:
+    text = "Liga Mistrzów ?!?!?!"
+    break;
+  case 4:
+    text = "Jutro piąteczek :D"
+    break;
+  case 5:
+    text = "PIĄTECZEK !!!"
+    break;
+  case 6:
+    text = "OOOO sobota, można pospać"
+    break;
+  case 5:
+    text = "Jutro poniedziałek !!!! :/"
+    break;
+  default:
+    text = "Nie rób sobie jaj"
 }
-// ---------------------------------------------------
-// 3. Exercise
-var x = 1;
 
-while (x <= 10) {
-  if (x%2 === 0) { // sprawdzenie czy liczba jest parzysta za pomocą modulo, czy reszta z dzielenia przez 2 jest równa 0, jeżeli jest to jest to liczba parzysta
-    console.log("x is currently: " + x);
-  }
-  x = x + 1;
-}
+console.log(text);
