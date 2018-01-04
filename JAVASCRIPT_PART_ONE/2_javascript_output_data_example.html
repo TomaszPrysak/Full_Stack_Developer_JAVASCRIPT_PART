@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Output Data Example</title>
+  </head>
+  <body>
+    <h1 id="testH1"> test</h1>
+    <p id="testPpierwszy">test</p>
+    <p id="testPdrugi">test</p>
+
+    <!-- Poniższy skrypt możemy umieści w osobnym pliku -->
+    <script>
+      document.getElementById("testH1").innerHTML = "Sposoby wyśweitlania informacji za pomocą JavaScript - ta informacja została wyświetlona za pomocą innerHTML";
+      document.getElementById("testPpierwszy").innerHTML = "Wszystkie informacje na tej stronie zostały umieszczone za pomocą JavaScript - ta informacja została wyświetlona za pomocą innerHTML";
+      var x = 5 + 6;
+      document.getElementById("testPdrugi").innerHTML = "Wynik działania 5 + 6 to:" + " " + x + " - ta informacja została wyświetlona za pomocą innerHTML";
+
+      alert("Wyskakujące okienko z informacjami za pomocą polecenia alert()");
+      window.alert("Wyskakujące okienko z informacjami za pomocą polecenia window.alert()");
+
+      console.log("Testujemy naszą stronę internetową - ta informacja została wyświetlona za pomocą console.log()");
+
+      document.write("<p style='font-weight: bold'>");
+      document.write("Informacje ze skryptu bezpośrednio umieszczone jako treść na stronie WWW - ta informacja została wyświetlona za pomocą document.write()");
+      document.write("</p>")
+    </script>
+  </body>
+</html>
