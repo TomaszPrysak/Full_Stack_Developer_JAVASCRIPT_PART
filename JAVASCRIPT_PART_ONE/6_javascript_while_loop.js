@@ -5,9 +5,9 @@
 // I w momencie kiedy warunek już nie jest spełniany więc kod jest pomijany i wykonywany zostaje kod poza pętlą, tzn. nawiasem klamrowym.
 
 // Składnia pętli:
-// while (warunek){
-//     # kod wykonywany, jeżeli warunek = true
-// }
+while (warunek){
+    # kod wykonywany, jeżeli warunek = true
+}
 
 // W związaku z tym, że kod wewnątrz pętli jest wykonywany powtarzalnie, pod warunkiem spełnienia warunku, musimy uważać aby pętla nie była wykonywana w nieskończoność.
 // Możemy to zrealizowac za pomoca dwóch sposobów:

@@ -4,9 +4,9 @@
 // Kod będzie powtarzany do momentu, aż spełoniony będzie określony warunek.
 // Największą różnicą pomiędzy pętlą for a while jest jej składnia pętli:
 
-// for (zmienna_startowa; warunek; inkrementacja/dekrementacja_zmiennej_startowej){
-//   # kod wykonywany, jeżeli warunek = true
-// }
+for (zmienna_startowa; warunek; inkrementacja/dekrementacja_zmiennej_startowej){
+  # kod wykonywany, jeżeli warunek = true
+}
 
 // UWAGA ! kolejne wyrażenia są rozdzielone średnikiem (;).
 

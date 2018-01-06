@@ -7,9 +7,9 @@
 // IF
 
 // Składnia instrukcji:
-// if (warunek){
-//     # wykonywany kod, jeżeli warunek = true
-// }
+if (warunek){
+    # wykonywany kod, jeżeli warunek = true
+}
 
 // Konstrukcja ta służy do wykonywania kodu który znajduje się pomiędzy nawiasami klamrowymi.
 // Kod ten będzie wykonywany tylko jeżeli zostanie spełniony warunek znajdujący się w nawiasie po if.
@@ -45,11 +45,11 @@ console.log(hot) // wyśweitlona w konsoli przeglądarki będzie wartość true
 // W tym przypadku będzie wykonany kod po else.
 
 // Składnia instrukcji:
-// if (warunek) {
-//   # wykonywany kod jeżeli warunek = true
-// } else {
-//   # wykonywany kod jeżeli warunek = false
-// }
+if (warunek) {
+  # wykonywany kod jeżeli warunek = true
+} else {
+  # wykonywany kod jeżeli warunek = false
+}
 
 temp = 30 // nadajemy zmiennej wartość 30
 
@@ -68,17 +68,17 @@ if (temp > 90){ // sprawdzamy czy temp jest większe od 90
 // Dzięki temu dostajemy szerokie narzędzie do kontrolowania kodu i sprwawdzania kilku warunków.
 
 // Składnia instrukcji:
-// if (warunek1) {
-//   # wykonywany kod, jeżeli warunek1 = true
-// } else if (warunek2) {
-//   # wykonywany kod, jeżeli warunek2 = true
-// } else if (warunek3) {
-//   # wykonywany kod, jeżeli warunek3 = treue
-// } else if (warunek4) {
-//   # wykonywany kod, jeżeli warunek4 = treue
-// } else {
-//   # wykonywany kod, jeżeli każdy z powyższych warunków = false
-// }
+if (warunek1) {
+  # wykonywany kod, jeżeli warunek1 = true
+} else if (warunek2) {
+  # wykonywany kod, jeżeli warunek2 = true
+} else if (warunek3) {
+  # wykonywany kod, jeżeli warunek3 = treue
+} else if (warunek4) {
+  # wykonywany kod, jeżeli warunek4 = treue
+} else {
+  # wykonywany kod, jeżeli każdy z powyższych warunków = false
+}
 
 temp = 75 // nadajemy zmiennej wartość 30
 // temp = 30

@@ -4,17 +4,16 @@
 // Instrukcja ta jest bardzo podobna do insrtukcji warunkowej if + else if, ponieważ za pomocą instrukcji warunkowej też możemy zapisać wiele warunków i wykonywaną dla tych warunków akcję.
 //
 // Składnia instrukcji:
-//
-// switch(wyrażenie) {
-//     case wartość1:
-//         # wykonywany kod, jeżeli wartość_wyrażenia === wartość1
-//         break;
-//     case wartość2:
-//         # wykonywany kod, jeżeli wartość_wyrażenia === wartość2
-//         break;
-//     default: # opcjonalnie
-//         # wykonywany kod, jeżeli wartość_wyrażenia nie została ujęta w żadnym przypadku
-// }
+switch(wyrażenie) {
+    case wartość1:
+        # wykonywany kod, jeżeli wartość_wyrażenia === wartość1
+        break;
+    case wartość2:
+        # wykonywany kod, jeżeli wartość_wyrażenia === wartość2
+        break;
+    default: # opcjonalnie
+        # wykonywany kod, jeżeli wartość_wyrażenia nie została ujęta w żadnym przypadku
+}
 
 // Na początku pobierana jest wartość wyrażenia które zostało ujęte w nawiasie za słowem switch.
 // Nastepnie wartość ta jest porównywana z wartością przypisaną do każdego przypadku.

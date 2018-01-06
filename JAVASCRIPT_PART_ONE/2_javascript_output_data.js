@@ -19,6 +19,14 @@
 
    document.getElementById("test").innerHTML = 5 + 6; // za pomocą elementu o ID = test będziemy wyświetlać na naszej stronie internetowej wynik działania 5 + 6
 
+//    Możemy się wspomoagać zmiennymi. To znaczy, przypiszemy do zmiennej nasz element HTML o okreslonym ID wraz z metoda dostawania się do niego, np.:
+
+      var akapit = document.getElementById("test");
+
+//    A następnie powołując się przez zmienną i innerHTML będziemy mu zmieniać treść, w poniższym przykłądzie za pomocą polecenia prompt() aby użytkownik sam podał to co ma zostać wyświetlone, np.:
+
+      akapit.innerHTML = prompt("Wprowadź nowy tekst który będzie wyświetlany w akapicie");
+
 // 2. Wyśweitlanie danych/informacji za pomocą okienka wyskakującego przeglądarki.
 //
 //    Słyży do tego polecenie:
