@@ -8,7 +8,8 @@
     <h1 id="testH1"> test</h1>
     <p id="testPpierwszy">test</p>
     <p id="testPdrugi">test</p>
-
+    <p id="z">Trele morele</p>
+    <p id="do"></p>
     <!-- Poniższy skrypt możemy umieści w osobnym pliku -->
     <script>
       document.getElementById("testH1").innerHTML = "Sposoby wyśweitlania informacji za pomocą JavaScript - ta informacja została wyświetlona za pomocą innerHTML";
@@ -20,6 +21,8 @@
       window.alert("Wyskakujące okienko z informacjami za pomocą polecenia window.alert()");
 
       console.log("Testujemy naszą stronę internetową - ta informacja została wyświetlona za pomocą console.log()");
+
+      document.getElementById("do").innerHTML = document.getElementById("z").innerHTML + " - pobrano to co napsane w akapicie wyżej i przeklejono do tego akapitu wszystko za pomocą innerHTML";
 
       document.write("<p style='font-weight: bold'>");
       document.write("Informacje ze skryptu bezpośrednio umieszczone jako treść na stronie WWW - ta informacja została wyświetlona za pomocą document.write()");

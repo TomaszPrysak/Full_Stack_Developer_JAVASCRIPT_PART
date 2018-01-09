@@ -18,6 +18,19 @@ function smak(co="ser pleśniowy", x=10){
   return text;
 }
 
+var v = "I'm global V";
+var stuff = "I'm global stuff";
+
+function fun(){
+    console.log(v);
+    stuff = "Reassign stuff inside func"; // na nowo zdefiniowana wartość zmiennej stuff, jednak zmiana ta dotyczy tylko wnętrza funkcji, jeżeli opuścimy funkcję t
+    console.log(stuff);
+}
+
+fun();
+
+console.log(stuff); //
+
 var imie = "Euzebiusz (argument jako zmienna)";
 
 witaj();

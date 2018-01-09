@@ -17,7 +17,7 @@
 //    A więc najpierw uzyskujemy dostęp do elementu HTML o okreslonym ID, a póżniej zapisujemy w nim dane/informacje, a ten element wyśweitla te dane/ifnormacje jako treść naszej strony.
 //    Przykład:
 
-   document.getElementById("test").innerHTML = 5 + 6; // za pomocą elementu o ID = test będziemy wyświetlać na naszej stronie internetowej wynik działania 5 + 6
+      document.getElementById("test").innerHTML = 5 + 6; // za pomocą elementu o ID = test będziemy wyświetlać na naszej stronie internetowej wynik działania 5 + 6
 
 //    Możemy się wspomoagać zmiennymi. To znaczy, przypiszemy do zmiennej nasz element HTML o okreslonym ID wraz z metoda dostawania się do niego, np.:
 
@@ -26,6 +26,10 @@
 //    A następnie powołując się przez zmienną i innerHTML będziemy mu zmieniać treść, w poniższym przykłądzie za pomocą polecenia prompt() aby użytkownik sam podał to co ma zostać wyświetlone, np.:
 
       akapit.innerHTML = prompt("Wprowadź nowy tekst który będzie wyświetlany w akapicie");
+
+//    Możemy wykorzystać tą metodę do pobierania treści z jednego elementu HTML i wklejenia go do innego elementu HTML.
+
+      document.getElementById("do").innerHTML = document.getElementById("z").innerHTML + " - pobrano to co napsane w akapicie pierwszym i przeklejono do akapitu drugiego wszystko za pomocą innerHTML";
 
 // 2. Wyśweitlanie danych/informacji za pomocą okienka wyskakującego przeglądarki.
 //
