@@ -18,6 +18,19 @@ function smak(co="ser pleśniowy", x=10){
   return text;
 }
 
+var imie = "Euzebiusz (argument jako zmienna)";
+
+witaj();
+
+document.getElementById("pierwszy").innerHTML = dodawanie(2,3) + " - suma powstała za pomocą funkcji z dwoma argumentami z których jeden zawiera wartość domyślą oraz ze zwracaniem wartości";
+
+document.getElementById("drugi").innerHTML = akapit(imie); // jako argumentu funkcji użyto zmiennej
+
+document.getElementById("trzeci").innerHTML = smak();
+
+//////////
+// Dodatek
+
 var v = "I'm global V";
 var stuff = "I'm global stuff";
 
@@ -29,14 +42,4 @@ function fun(){
 
 fun();
 
-console.log(stuff); //
-
-var imie = "Euzebiusz (argument jako zmienna)";
-
-witaj();
-
-document.getElementById("pierwszy").innerHTML = dodawanie(2,3) + " - suma powstała za pomocą funkcji z dwoma argumentami z których jeden zawiera wartość domyślą oraz ze zwracaniem wartości";
-
-document.getElementById("drugi").innerHTML = akapit(imie); // jako argumentu funkcji użyto zmiennej
-
-document.getElementById("trzeci").innerHTML = smak();
+console.log(stuff);

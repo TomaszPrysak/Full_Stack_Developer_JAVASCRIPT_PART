@@ -37,7 +37,7 @@ var arrayName = new Array(item1, item2, ...);
 
 var arraName = [];
 
-// Przykład z miastami zapisany jako tablica:
+// Przykład z miastami zapisany jako tablica, będziemy go używać jako przykład przez cały ten plik:
 
 var cities = ["Szczekociny", "Myszków", "Zawiercie"];
 
@@ -56,10 +56,11 @@ var myArray = [
   arrayName // nazwa innej tablicy
 ];
 
-// 2. Dostep do całej tablicy oraz poszczególnych jej elementów.
+// 2. Dostep do tablicy oraz każdego z jej elementów z osobna.
 
-// Dostęp do całej tablicy nastepuje poprzez podanie jej nazwy.
-// Aby wywołać zawartość całej tablicy po prostu podajemy jej nazwę:
+// Dostęp do tablicy nastepuje poprzez podanie jej nazwy.
+// Aby wywołać zawartość całej tablicy po prostu podajemy jej nazwę.
+// Wówczas w jednym wierszu uzyskujemy tą zawartość:
 
 cities;
 console.log(cities);// Oczywiście jeżeli chcemy wyśweitlenia zawartości tą nazwę musimy użyć z jakimś poleceniem które tan pozwoli to wyświeltić, w przeciwnym wypadku nic nie dostaniem
@@ -87,7 +88,7 @@ city1 = "Gdańsk"; // jest to równoznaczne z: cities[1] = "Gdańsk";
 
 // 4. Długość tablicy za pomocą metody "lenght".
 // Długość tablicy to nic innego jak ilość elementów wchodzących w skład tablicy.
-// Jeżeli jakaś pozycja tablcy nie zaweira żadnej wartści to jest wliczana do sumy elementów tablicy, do jej długości.
+// Jeżeli jakaś pozycja tablcy nie zaweira wartości to jest wliczana do sumy elementów tablicy, do jej długości.
 
 // Polecenie do zwracania długości tablicy to length.
 // Używamy go tak jak każdego innego polecenia dotyczącego obiektów.
@@ -99,4 +100,60 @@ var citiesLen = cities.length; // ponieważ length zwraca wartość więc częś
 // UWAGA ! Długość tablicy jest o jeden większa od numeru indeksu ostatniego elementu tablicy.
 //         Innymi słowy długość tablicy liczy sie od 1. Pusta tablica ma długość równą 0.
 
-5. Iterowanie po wszystkich elementach tablicy.
+// 5. Iterowanie po elementach tablicy.
+// Wypisując nazwę tablicy wywołamy całą zawartość tablicy w jednym wierszu.
+// Z kolei jak wypiszemy nazwę i numer indeksu to wywołujemy pojedynczy element tablicy.
+
+// Jeżeli chcielibyśmy za jednym razem mieć dostęp do każdego z elementów tablicy z osobna posiłkujemy się interowaniem przez tablicę za pomocą pętli for.
+// I tutaj pojawia się kolejna wersja pętli for tak zwana pętla for/of.
+
+// Jednak zaczniemy od pierwszej pętli for:
+
+for (var i = 0; i < cities.length; i++) {
+  console.log(cities[i]);
+}
+// Pętla jest powtarzana taką ilość razy ile wynosi długość pętli pnieważ w miejscu warunku pętli for jest wstawione sprawdzanie czy zmienna pomocnicza i jest mniejsza od długości tablicy.
+// Użycie znaku "mniejsze" jest ważne ponieważ długość tablicy jest o jeden większa od ostatniego indeksu tablicy.
+// W każdym przebiegu pętli w nawias kwadratowy odwołujący się do elementu talbicy podstawiana jest pomocnicza zmienna i o wartości będącej z przedziału od 0 do wartośći równej ostatniemu indeksowi tablicy.
+// Dzięki temu pętla for przeiteruje i będzie miała dostęp do każdego elementu tablicy z osobna.
+
+// Druga pętla jest specjalnie dedykowana dla pętli for/of.
+// Jej składnia jest następująca:
+
+for(var value of arrayName){
+  value // jako wartość pojedynczego elementu tablicy, przy każdym przebiegu jest równy nastepnegmu elementowi
+}
+// Pętla ta jest dedykowana specjalnie dla tablic. Widać po jej konstrkcji.
+// Nie musimy w tej pętli deklarować zmiennej startowej, warunku jaki ma być spełniony przy każdym przebiegu pętli oraz inkrementacji, dekrementacji zmiennej startowej.
+// To wszystko powyższe jest jakby robione za nas, ponieważ jest to pętla dla tablic więc z góry wiadomo, że będzie wykonywana tyle razy ile wynosi długość talblicy oraz iteracja jest dokonywana przez elementy tablicy.
+// Najważniejszą różnicą jest to, że posługujemy się słówkiem "value" które w każdym przebiegu pęlti jest równe wartości elementu tablicy. Możnaby to zapisac jako value == arrayName[i].
+// W związaku z tym do wykonywania działań na elementach tablicy używamy słówka "value".
+
+// Dla naszego przykładu:
+
+for(var value of cities){
+  console.log(value); // gdzie value == cities[i]
+}
+
+// No i trzecia forma iterowania po każdym elemencie tablicy to specjalna metoda forEach wywoływana jak każda metoda dla obiektu, tj nazwa tablicy i po kropce forEach.
+// Składnia wygląda tak:
+
+arrayName.forEach(nazwaFunkcji(aktualnyElement, indexElementu, tablicaElementu), taWartość);
+// Jak widać ta metoda wymaga aby była stworzona funkcja i posiadała co najmniej jeden argument:
+// aktualnyElement - ten argument JEST WYMAGANY, będzie on zwracać wartość aktualnego elementu tablicy, coś jak słówko "value" w pętli for/of
+// indexElementu - ten argument NIE JEST wymagany, po prostu zwraca indeks aktualnego elementu tablicy,
+// tablicaElementu - ten argument NIE JEST wymagany, po prostu zwraca nazwę aktualnego elementu tablicy.
+// taWartość - argument poza funkcją, również nie jest wymagany
+// UWAGA ! ta metoda nie działa w starszych przeglądarkach
+
+// Metoda ta działa w ten sposób, że przy każdym elemencie tablicy wywoływana jest funkcja którą wczśniej zdeklarowaliśmy.
+// Argumentem tej funkcji, który jest wymagany, jest wartość aktualnego przy każdym przebiegu funkcji elementu tablicy.
+// Jednak przy wywoływaniu tej funkcji w konstrukcji forEach nie musimy podawać w nawiasie argumentu.
+// Następnie jest wykonywany kod z wnętrza funkcji. Będzie on wykonywany za każdym razem dla następnego elementu tablicy.
+
+// Przykład:
+
+function printEach(item){
+  console.log(item);
+}
+cities.forEach(printEach);

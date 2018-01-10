@@ -32,8 +32,8 @@ for (zmienna_startowa; warunek; inkrementacja/dekrementacja_zmiennej_startowej){
 // I w momencie kiedy warunek już nie jest spełniany więc kod jest pomijany i wykonywany zostaje kod poza pętlą, tzn. nawiasem klamrowym.
 
 // UWAGA ! Oprócz podstawowej pętli for opisanej powyżej w JavaScript występuję jeszcze dwie inne pętle for:
-//         1. for/in
-//         2. for/of
+//         1. for/in - dla obiektów JavaScript
+//         2. for/of - dla tablic JavaScript
 //         Zostaną one omówione w późniejszym czasie
 
 // Przykłady pętli:
