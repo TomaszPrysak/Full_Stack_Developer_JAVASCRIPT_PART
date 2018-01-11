@@ -120,19 +120,19 @@ for (var i = 0; i < cities.length; i++) {
 // Druga pętla jest specjalnie dedykowana dla pętli for/of.
 // Jej składnia jest następująca:
 
-for(var value of arrayName){
-  value // jako wartość pojedynczego elementu tablicy, przy każdym przebiegu jest równy nastepnegmu elementowi
+for(var currentValue of arrayName){
+  currentValue // jako wartość pojedynczego elementu tablicy, przy każdym przebiegu jest równy nastepnegmu elementowi
 }
 // Pętla ta jest dedykowana specjalnie dla tablic. Widać po jej konstrkcji.
-// Nie musimy w tej pętli deklarować zmiennej startowej, warunku jaki ma być spełniony przy każdym przebiegu pętli oraz inkrementacji, dekrementacji zmiennej startowej.
+// Nie musimy w tej pętli deklarować zmiennej startowej, warunku jaki ma być spełniony przy każdym przebiegu pętli oraz inkrementacji, dekrementacji zmiennej startowej jak w normalnej pętli for.
 // To wszystko powyższe jest jakby robione za nas, ponieważ jest to pętla dla tablic więc z góry wiadomo, że będzie wykonywana tyle razy ile wynosi długość talblicy oraz iteracja jest dokonywana przez elementy tablicy.
-// Najważniejszą różnicą jest to, że posługujemy się słówkiem "value" które w każdym przebiegu pęlti jest równe wartości elementu tablicy. Możnaby to zapisac jako value == arrayName[i].
-// W związaku z tym do wykonywania działań na elementach tablicy używamy słówka "value".
+// Najważniejszą różnicą jest to, że posługujemy się zmienną pomocniczą "currentValue" (może być nazwana jak chcemy) która w każdym przebiegu pęlti jest równa wartości elementu tablicy. Możnaby to zapisac jako currentValue == arrayName[i].
+// W związaku z tym do wykonywania działań na elementach tablicy używamy tej zmiennej pomocniczej "currentValue".
 
 // Dla naszego przykładu:
 
-for(var value of cities){
-  console.log(value); // gdzie value == cities[i]
+for(var item of cities){
+  console.log(item); // gdzie item == cities[i]
 }
 
 // No i trzecia forma iterowania po każdym elemencie tablicy to specjalna metoda forEach wywoływana jak każda metoda dla obiektu, tj nazwa tablicy i po kropce forEach.
@@ -140,7 +140,7 @@ for(var value of cities){
 
 arrayName.forEach(nazwaFunkcji(aktualnyElement, indexElementu, tablicaElementu), taWartość);
 // Jak widać ta metoda wymaga aby była stworzona funkcja i posiadała co najmniej jeden argument:
-// aktualnyElement - ten argument JEST WYMAGANY, będzie on zwracać wartość aktualnego elementu tablicy, coś jak słówko "value" w pętli for/of
+// aktualnyElement - ten argument JEST WYMAGANY, będzie on zwracać wartość aktualnego elementu tablicy, coś jak zmiena pomocniczan "currentValue" w pętli for/of
 // indexElementu - ten argument NIE JEST wymagany, po prostu zwraca indeks aktualnego elementu tablicy,
 // tablicaElementu - ten argument NIE JEST wymagany, po prostu zwraca nazwę aktualnego elementu tablicy.
 // taWartość - argument poza funkcją, również nie jest wymagany

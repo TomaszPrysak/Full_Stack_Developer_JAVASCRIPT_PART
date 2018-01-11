@@ -65,3 +65,48 @@ for (i = 0; i < word.length; i = i + 2) {
 // W tej pętli za każdym razem będzie wypisywana literka "A".
 // Powodem tego jest inkrementacja zmiennej startowej nie o jeden a o dwa.
 // A na co drugim miejscu w tej zmiennej znajduje się literka "A".
+
+// BARDZO WAŻNE !
+// Pętla for w połączeniu z innerHTML doskonale nadają się do umieszczania całych znaczników HTML wraz z treścią.
+// Dzięki temu możemy stworzyć automatyczne umieszczanie dużych treści wraz z ich znacznikami HTML.
+// Oczywiście musimy stworzyć jakiś znaniczk nadrzędny wraz z ID do którego wstawimy stworzony całkowicie automatycznie znacznik z treścią. Możemy to połączyć na przykłąd z Bootstrapem.
+
+// Powyższe jest możliwe dzięki temu, że za pomocą innerHTML wstawimy nie sam zwykły tekst, ale dodamy do niego również w postaci tekstowej znaczniki HTML.
+// Pomimo, że na początku będzie to zwykły tekst to w momencie jak go wstawimy za pomocą innerHTML to ten tekst mając w sobie już znaczniki będzie odczytywany prawidłowo przez przglądarkę.
+// I znacnziki HTML zapisane w tekście zostaną odczytane przez przeglądarkę jako, np.: akapit P albo lista UL/OL, albo formularz itd.
+// W związku z tym na stronie internetowej treść wyświwetli się zgodnie z wyświetlaniem zgodnym z danym znacznikiem.
+
+// Aby powyższe zrealizować tworzymy przed pętla for zmienną kórej wartość jest ciąg znaków w postaci interesującego nas znaniczka otwierającego.
+// Następnie w pętli for bedziemy do tej zmiennej dodawać treść wypełniającą, która w normalnych warunkach znajdowałaby się między znacznikiem otwierającym i zamykającym HTML.
+// A poza pętlą for, cały czas do tej samej zmiennej dodajemy na sam konieć ciąg znaków w postaci znaniczka zamykającego.
+// Dzieki temu w jednej zmiennej mamy całą zawartość wraz z załącznikami.
+// Wykorzystując innerHTML zmienną tą przypisujemy do interesującego nas ID.
+// Przeglądarka prawidłowo odczytuje i wyświtla treść naszej zmiennej.
+
+// Przykład:
+var cities = ["Szczekociny", "Myszków", "Zawiercie"];
+var citiesLen = cities.length;
+
+tresc = "<ul>";
+for (var i = 0; i < citiesLen; i++) {
+  tresc += "<li>" + cities[i] + "</li>";
+}
+tresc += "</ul>"
+document.getElementById('f').innerHTML = tresc;
+
+// Powyższe zapisalibyśmy w formacie HTML w następujący sposób:
+
+<ul>
+  <li>Szczekociny</li>
+  <li>Myszków</li>
+  <li>Zawiercie</li>
+</ul>
+
+// To co otrzymamy za pomocą pętli for to:
+
+<ul><li>Szczekociny</li><li>Myszków</li><li>Zawiercie</li></ul>
+
+// To jest to samo co forma przyjemniejsza dla oka, jednak dla przeglądarki HTML to nie ma znaczenia.
+// Kod HTML piszemy z zachowaniem formy aby można druga osoba mogła się w nim połapać.
+// Jednak dla przeglądarki wszystko mogłoby być zapisane w jendej lini.
+// Dlatego to co uzyskamy przy pomocy pętli for mimo, że w jednej lini będzie prawidłowo wyświetlane.

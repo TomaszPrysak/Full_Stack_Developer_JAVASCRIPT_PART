@@ -20,8 +20,8 @@ text1 += "</ul>"
 document.getElementById('f').innerHTML = text1;
 
 text2 = "<ul>";
-for (value of cities) {
-  text2 += "<li>" + value + "</li>";
+for (var y of cities) {
+  text2 += "<li>" + y + "</li>";
 }
 text2 += "</ul>";
 document.getElementById('g').innerHTML = text2;
