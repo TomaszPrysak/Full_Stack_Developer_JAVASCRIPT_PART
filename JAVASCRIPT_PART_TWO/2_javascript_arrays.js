@@ -22,7 +22,7 @@ var arrayName = [item1, item2, ...];
 
  // bądź zapis bardziej przejrzysty, ale znaczacy to samo:
 
-var arrayName =[
+var arrayName = [
   item1,
   item2,
   ...
@@ -82,6 +82,8 @@ var city1 = cities[1]; // drugie element z tabeli przypisany do zmiennej city1
 
 cities[1] = "Włoszczowa"; // wówczas w tablicy na pozycji 2 nie będzie już Myszków tylko Włoszczowa
 
+ // UWAGA ! Możemy zmienić wartość konkretnego elementu tablicy jednak nie możemy zmienić jednego znaku tego elementu tablicy, oczywiście jeżeli elementem jest ciąg znaków.
+
  // Oczywiście wykorzystując przypisaną zmienną do elementu drugiego tablicy możemy ją modyfikować, a jednoczęsnie będzie modyfikowany przypisany do niej elementu tablicy.
 
 city1 = "Gdańsk"; // jest to równoznaczne z: cities[1] = "Gdańsk";
@@ -119,7 +121,6 @@ for (var i = 0; i < cities.length; i++) {
 
  // Druga pętla jest specjalnie dedykowana dla pętli for/of.
  // Jej składnia jest następująca:
-
 for(var currentValue of arrayName){
   currentValue // jako wartość pojedynczego elementu tablicy, przy pierwszym przebiegu jest równy wartości elemetu tablicy arrayName[0] itd.
 }
@@ -130,20 +131,24 @@ for(var currentValue of arrayName){
  // W związaku z tym do wykonywania działań na elementach tablicy używamy tej zmiennej pomocniczej "currentValue".
 
  // Dla naszego przykładu:
-
 for(var item of cities){
   console.log(item); // gdzie item == cities[i]
 }
 
  // No i trzecia forma iterowania po każdym elemencie tablicy to specjalna metoda forEach wywoływana jak każda metoda dla obiektu, tj nazwa tablicy i po kropce forEach.
  // Składnia wygląda tak:
+arrayName.forEach(nazwaPoleceniaJavaScritp); // jeżeli chcemy aby przy wywoływaniu każdego elementu tablicy było wykonywane jakieś polecenie JavaScript, np alert, wówczas każdy element tablicy będzie wyśweitlony w wyskakującym okienku przeglądarki.
 
+ // Przykład:
+cities.forEach(alert);
+
+ // Z wykorzystaniem własnych funkcji, składnia polecenia:
 arrayName.forEach(nazwaFunkcji(aktualnyElement, indexElementu, tablicaElementu), taWartość);
  // Jak widać ta metoda wymaga aby była stworzona funkcja i posiadała co najmniej jeden argument:
  // aktualnyElement - ten argument JEST WYMAGANY, będzie on zwracać wartość aktualnego elementu tablicy, coś jak zmiena pomocniczan "currentValue" w pętli for/of
  // indexElementu - ten argument NIE JEST wymagany, po prostu zwraca indeks aktualnego elementu tablicy,
  // tablicaElementu - ten argument NIE JEST wymagany, po prostu zwraca nazwę aktualnego elementu tablicy.
- // taWartość - argument poza funkcją, również nie jest wymagany
+ // taWartość - argument poza funkcją, również NIE JEST wymagany
  // UWAGA ! ta metoda nie działa w starszych przeglądarkach
 
  // Metoda ta działa w ten sposób, że przy każdym elemencie tablicy wywoływana jest funkcja którą wczśniej zdeklarowaliśmy.
@@ -152,7 +157,6 @@ arrayName.forEach(nazwaFunkcji(aktualnyElement, indexElementu, tablicaElementu),
  // Następnie jest wykonywany kod z wnętrza funkcji. Będzie on wykonywany za każdym razem dla następnego elementu tablicy.
 
  // Przykład:
-
 function printEach(item){
   console.log(item);
 }
@@ -170,7 +174,6 @@ cities.forEach(printEach);
  //    Metoda ta dodaje nowy element na końcu tablicy.
  //    Nazwę tego nowego elementu wpisujemy w nawiasie metody.
  //    Składnia polecenia:
-
     arrayName.push("newItem");
 
     // Dodatkowo metoda ta oprócz dopisania na końcu tablicy nowego elementu zwraca też nową długość tablicy (długosć po dodaniu nowego elementu).
@@ -185,7 +188,6 @@ cities.forEach(printEach);
     //         Takie działanie spowoduje, że dwa razy dodamy ten sam element do tablicy i jednocześnie jej długość będzie większa niż zakładaliśmy.
 
     // Przykład:
-
     cities.push("Jędrzejów");
     var citiLen = cities.push("Jędrzejów");
 
@@ -200,7 +202,6 @@ cities.forEach(printEach);
  //    Metoda ta usuwa ostatni element tablicy.
  //    W tej metodzie nie podajemy argumentu w nawiasie.
  //    Składnia polecenia:
-
     arrayName.pop();
 
     // Dodatkowo metoda ta oprócz usunięcia ostatniego elementu tablicy również zwraca wartość usuwanego elementu.
@@ -214,7 +215,6 @@ cities.forEach(printEach);
     //         Poniważ dwa razy coś usuniemy a wartościa w zmiennej będzie wartość elementu usuwanego za drugim razem.
 
     // Przykład:
-
     cities.pop();
     var lastItem = cities.pop();
 
@@ -223,7 +223,6 @@ cities.forEach(printEach);
  //    Otrzymuje ciąg znaków w którym wartości elementów tabilcy są oddzielone przecinkiem.
  //    W tej metodzie nie podajemy argumentu w nawiasie.
  //    Składnia polecenia:
-
     arrayName.toString();
 
     // Metoda join() również konwertuje całą zawartość tablicy do ciągku znaków.
@@ -231,11 +230,9 @@ cities.forEach(printEach);
     // Jeżeli chcemy aby znak odzielający był również ciągiem znaków to w nawiasie ten znak umieszczamy w cudzysłowiu. Może być to również liczba, wówczas bez cudzysłowia.
     // Otrzymuje ciąg znaków w którym wartości elementów tabilcy są oddzielone znakiem z nawiasu.
     // Składnia polecenia:
-
     arrayname.join("_");
 
     // Przykład:
-
     cities.toString(); // wynikiem będzie ciąg znaków zlepiony z elementów tablicy oddzielonych przecinkiem(,)
     cities.join("_"); // wynikiem będzie ciąg znaków zlepiony z elementów tablicy oddzielonych podkreslnikiem(_)
     cities.join(88); // wynikiem będzie ciąg znaków zlepiony z elementów tablicy oddzielonych dwoma ósemkami(88)
@@ -244,7 +241,6 @@ cities.forEach(printEach);
  //    Metoda ta usuwa pierwszy element tablicy.
  //    W tej metodzie nie podajemy argumentu w nawiasie.
  //    Składnia polecenia:
-
     arrayName.shift();
 
     // Dodatkowo metoda ta oprócz usunięcia pierwszego elementu tablicy również zwraca wartość usuwanego elementu.
@@ -254,7 +250,6 @@ cities.forEach(printEach);
     console.log(x);
 
     // Przykład:
-
     cities.shift();
     var firstItem = cities.shift();
 
@@ -262,7 +257,6 @@ cities.forEach(printEach);
  //    Metoda ta dodaje nowy element na początku tablicy, przesuwając istniejące już elementy na nowe indeksy.
  //    Nazwę tego nowego elementu wpisujemy w nawiasie metody.
  //    Składnia polecenia:
-
     arrayName.unshift("NaPoczątku");
 
     // Dodatkowo metoda ta oprócz dopisania na poącztku tablicy nowego elementu zwraca też nową długość tablicy (długosć po dodaniu nowego elementu).
@@ -272,7 +266,6 @@ cities.forEach(printEach);
     console.log(x);
 
     // Przykład:
-
     cities.unshift("Żarnowiec");
     var firstItem = cities.unshift("Żarnowiec");
 
@@ -282,38 +275,32 @@ cities.forEach(printEach);
  //    Długość tablicy będzie nadal taka sama z tą różnicą, że w miejscu usuniętego elementu będzie pusta wartość.
  //    Pozostałe elementy nie przesunąć sie w miejsce usuniętych elememtów.
  //    Składnia metody:
-
     delete arrayName[i];
 
     // Przykład:
-
     delete cities[1];
 
  // g) Dodawanie nowych elementów w określony indeks tablicy za pomocą splice():
  //    Metoda ta dodaje nowe elementy, może być ich kilka, do tablicy w określone miejsce tablicy.
  //    Możemy dodać nowe elementy pomiędzy elementy już istniejące w tablicy lub na jej poczatku lub na jej końcu, w zalężonści od tego jakie argumenty podamy w metodzie.
  //    Składnia polecenia:
-
     arrayName.splice(x,y,newItem1,newItem2...);
     // x - określa indeks tabeli od którego zostaną dodane nowe elementy,
     // y - okresla ile elementów, już istniejąych w tabeli, zostanie skasowanych w wyniku dodawania nowych elementów, jeżeli podamy 0 to dodamy nowe elementy, od indeksu podanego jako x, a pozostałe zostaną przesunięte w nowe indeksy, jeżeli nowe elementy dodamy pomiędzy już istniejące,
     // newItem1, newItem2... - wartości elementów które dodajemy do tablicy, może być ich kilka.
 
     // Przykład:
-
     cities.splice(1,1,"Kraków","Warszawa");
 
  // h) Usuwanie elementów z okreslonych indeksów tablicy za pomocą splice():
  //    Jeżeli nie podamy w poleceniu splice() nowych elementów jakie chcemy dodać do tablicy, wówczas polecenie to będzie służyć do usuwania elementów z określonych indeksów tablicy.
  //    Najważniejsze jest to, że w przeciwieństwie do polecenia delete, takie usuwanie elementów nie powoduje powstawania pustych miejsce w tablicy.
  //    Składnia polecenia:
-
     arrayName.splice(x,y);
-    // x - określa indeks tablicy z którego zacznie usuwanie elementów, włączając ten indeks,
+    // x - określa indeks tablicy od którego zacznie usuwanie elementów, włączając ten indeks,
     // y - ilość usuwanych elementów tablicy, począwszy od indeksu tego którego wskazalismy jako początek usuwania.
 
     // Przykład:
-
     cities.splice(2,1);
 
  // i) Łączenie dwóch tabel w jedną za pomocą concat():
@@ -321,20 +308,17 @@ cities.forEach(printEach);
  //    Nie zmienia którejkolwiek tablic, lecz tworzy nową tabelę z wartościami z tabel które łączylismy.
  //    Możemy zarówno podawać nazwy już istniejących tabel bądź podać w poleceniu bezpośrednio tabelę z wartościami zapisaną jako nawiasy kwadratowe.
  //    Składnia polecenia:
-
     array1.concat(array2,array3,[1,2,3],...);
     // array1 - nazwa pierwsze tablicy którą będziemy łączyć z innymi,
     // array2 - nazwa drugiej tablicy którą będziemy łaczyć z inncymi,
     // [1,2,3] - wartości tablicy która będzie łączona z inncymi tablicami,
 
     // Wynikiem tej metody jest nowa tablica więc najlepiej będzie jak to polecenie przypiszemy do zmiennej:
-
     var newArray = array1.concat(array2,array3...);
 
     // Elementy w nowej tablicy będą miałby przypisane indkesy w kolejności użycia nazw tablic w poleceniu concat().
 
     // Przykład łączenia tabel:
-
     var countries = ["Poland", "Germany", "Russia"];
     var continents = ["Europe", "Africa", "Asia"];
     var mix = cities.concat(countries,continents);
@@ -343,7 +327,6 @@ cities.forEach(printEach);
 //    Metoda ta kopiuje część elementów z jednej tablicy i umieszcza w nowej tablicy.
 //    Nie usuwa tych kopiowanych elementów z tablicy będącej źródłem.
 //    Składnia polecenia:
-
    array1.slice(x,y);
    // array1 - nazwa talbicy z której będziemy kopiować elementy,
    // x - okresla indeks elementu tablicy z której będziemy kopiować, od tego elementu zaczynamy kopiowanie, włącznie z elementem pod tym indeksem,
@@ -355,5 +338,102 @@ cities.forEach(printEach);
    var newArray = array1.slice(x,y);
 
    // Przykład:
-
    var cliceArray = cities.slice(1,3);
+
+// k) Sortowanie alfabetyczne tablic za pomocą sort():
+//    Metoda ta pozwala na sortowanie tablic, których wartościami są ciągni znaków.
+//    Ograniczenie to wynika z faktu, że sortowanie polega na porównywaniu najpierw pierwszych liter każdej wartości w tabli.
+//    Jeżeli pierwsza litera będzie taka sama, wówczas porównywana jest kolejna i tak dalej, aż do rozstrzygnięcia.
+//    Składnia polecenia:
+   array.sort();
+
+   // Przykład:
+   cities.sort();
+
+   // UWAGA ! Znaczenie ma również wielkość liter. Wielka litera o tym samym znaku zawsze będzie w sortowaniu wcześniej niż mała litera.
+
+   // Pomocną metodą wystepującą razem z sort() jest reverse().
+   // Służy ona do odwrócenia wcześniejszego sortowania. Jest to po prostu sortowanie malejące.
+   // Składnia polecenia:
+   arrayName.reverse();
+
+   // Przykład:
+   cities.reverse();
+
+   // UWAGA ! Aby winik był prawidłowy najpierw na tej tablicy musimy użyć sort(), a dopiero potem reverse():
+
+   cities.sort();
+   cities.reverse();
+
+   // UWAGA ! Możemy również używać sort() na wrtościach liczbowych. Jednak metoda ta ma sens tylko dla wartości jednocyfrowych.
+   //         Metoda ta w przypadku licz porównuje tylko pierwszą cyfrę. Jeżeli liczby będą składały się z dwóch i większej cyfr wówczas prównanie nastapi tylko na podstawie pierwszej.
+   //         A to spowoduje, że wynikiem sortowania może być na przykład: 1,13,1444,2,223,4,5555,7,9988
+
+// l) Sortowanie numeryczne tablic za pomocą funkcji porównywania w metodzie sort():
+//    Jest to rozbudowana metoda sort(), ponieważ w nawiasie jej wpisujemy funkcję porónującą.
+//    Składnia polecenia:
+   arrayName.sort(function(a, b){return a-b}); // w przypadku sortowania rosnącego
+   arrayName.sort(function(a, b){return b-a}); // w przypadku sortowania malejącego
+
+   // W momencie porównywania tegotypu najpierw metoda sort() dokonuje porównania wprost dwóch wartości.
+   // Nastepnie za pomocą function(a, b)return{a-b} dokonywane jest sprawdzenie jaki rodzaj wartości (negatywne, zero, pozytywne) zwraca porównanie dwóch wartości.
+   // Wyniki tych dwóch porównań w jednym można uzyskać prawidłowy wynik porównania numerycznego
+
+   // Przykład:
+   var numericSort = [1,7,4,5,9,11,551,1155,44899];
+   document.getElementById('ae').innerHTML = numericSort.sort(function(a,b){return a-b});
+
+// m) Wykorzystując powyższą funkcjonalność możemy znaleźć wartość największą i najmniejszą.
+//    Po przesortowaniu metodą sort() z funkcją porównująca dostajemy tablicę z wynikiem sortowania malejącego bądź rosnącego, w zależności jak zapisaliśmy funkcję porównującą.
+//    W związku z tym, że wynik jest tablicą już posortowaną to pierwszy element o indeksie [0] jest albo najmniejszy albo największy.
+//    A element o indkesie [arrayName.length-1] jest również elementem albo największym albo najmniejszym.
+
+   // Przykład:
+   var numericSort = [1,7,4,5,9,11,551,1155,44899];
+   numericSort.sort(function(a,b){return a-b});
+   numericSort[0]; // najmniejszy elementu
+   numericSort[numericSort.length-1]; // największy element
+
+   // Jednak powyższa metoda jest nieefektywna jeżeli chcemy znaleźć tylko wartośc największą bądź najmniejszą.
+
+// n) Inne metody znajdowania wartości min/max w tabeli:
+
+   // Wartość najewięszka za pomocą metody Math.max() użytej na tablicy.
+   // Składnia polecenia:
+   Math.max.apply(null, nameArray);
+
+   // Przykład:
+   Math.max.apply(null, cities);
+
+   // Wartość najmniejsza za pomocą metody Math.min() użytej na tablicy.
+   // Składnia polecenia:
+   Math.min.apply(null, nameArray);
+
+   // Przykład:
+   Math.min.apply(null, cities);
+
+   // Najszybsze uzyskanie najmniejszej i największej to utworzenie funkcji z wewnętrzną pętlą while która porównuję każdy element tablicy z nieskończonością:
+   // Składnia funkcji szukającej wartości największej:
+   function myArrayMax(arr) {
+    var len = arr.length
+    var max = -Infinity;
+    while (len--) {
+        if (arr[len] > max) {
+            max = arr[len];
+          }
+        }
+      return max;
+    }
+
+    // Składnia funkcji szukającej wartości najmniejszej:
+
+    function myArrayMin(arr) {
+    var len = arr.length
+    var min = Infinity;
+    while (len--) {
+        if (arr[len] < min) {
+            min = arr[len];
+          }
+        }
+      return min;
+    }

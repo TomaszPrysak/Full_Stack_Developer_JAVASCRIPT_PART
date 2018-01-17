@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="3_javascript_arrays_exercise_interactive.css">
+  </head>
+
+  <body>
+    <div id="first" class="container">
+    <h1 class="text-center">The List</h1>
+    <p class="text-justify">Nasza przełomowa aplikacja pozwala na tworzenie oraz modyfikowanie listy osób. Może być to lista:</p>
+    <ul>
+      <li>Studentów</li>
+      <li>Pracowników</li>
+      <li>Klientów</li>
+      <li>Zadań do wykonania</li>
+      <li>itd</li>
+    </ul>
+    <p class="text-justify">Tak naprawdę tylko Twoja wyobraźnia ogranicza Cię do czego jeszcze możesz wykorzystać tą aplikację.</p>
+    <hr>
+    <p class="text-justify">Instrukcja obsługi:</p>
+    <ul>
+      <li>Przycisk <b>add</b> służy do DODAWANIA pozycji na liście</li>
+      <li>Przycisk <b>remove</b> służy do USUWANIA pozycji z listy</li>
+      <li>Przycisk <b>display</b> służy do WYŚWIETLANIA listy wraz z pozycjami na niej</li>
+      <li>Przycisk <b>hide</b> służy do UKRYWANIA listy wraz z pozycjami na niej</li>
+    </ul>
+  </div>
+
+  <div id="second" class="container">
+    <h1 class="text-center"> Menu aplikacji</h1>
+
+    <div id="tableContent">
+      <p class="text-center">Aktualnie Twoja lista jest pusta.</p>
+      <p class="text-center">Wykorzystaj menu poniżej do obsługi aplikacji.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-row justify-content-center">
+            <div class="col-auto">
+              <button onclick="display()" type="button" class="btn btn-primary mb-2">display</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-row justify-content-center">
+            <div class="col-auto">
+              <button onclick="hide()" type="button" class="btn btn-primary mb-2">hide</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-row justify-content-center">
+            <div class="col-auto">
+              <label class="sr-only" for="addItem">Name</label>
+              <input type="text" class="form-control mb-2" id="addItem" placeholder="Dodaj element listy">
+            </div>
+            <div class="col-auto">
+              <button onclick="add()" type="button" class="btn btn-primary mb-2">add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-row justify-content-center">
+            <div class="col-auto">
+              <label class="sr-only" for="removeItem">Name</label>
+              <input type="text" class="form-control mb-2" id="removeItem" placeholder="Usuń element listy">
+            </div>
+            <div class="col-auto">
+              <button onclick="remove()" type="button" class="btn btn-primary mb-2">remove</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src='3_javascript_arrays_exercise_interactive.js'></script>
+  </body>
+</html>

@@ -6,7 +6,7 @@
 
 // Składnia pętli:
 while (warunek){
-    # kod wykonywany, jeżeli warunek = true
+    # kod wykonywany, jeżeli warunek == true
 }
 
 // W związaku z tym, że kod wewnątrz pętli jest wykonywany powtarzalnie, pod warunkiem spełnienia warunku, musimy uważać aby pętla nie była wykonywana w nieskończoność.

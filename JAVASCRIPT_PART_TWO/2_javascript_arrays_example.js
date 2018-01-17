@@ -75,3 +75,45 @@ document.getElementById('y').innerHTML = mix;
 
 var sliceCities = cities.slice(1,3);
 document.getElementById('z').innerHTML = sliceCities;
+
+document.getElementById('aa').innerHTML = cities;
+document.getElementById('ab').innerHTML = cities.sort();
+document.getElementById('ac').innerHTML = cities.reverse();
+
+var numericSort = [1,7,4,5,9,11,551,1155,44899];
+document.getElementById('ad').innerHTML = numericSort.sort();
+
+document.getElementById('ae').innerHTML = numericSort.sort(function(a,b){return a-b});
+
+document.getElementById('af').innerHTML = numericSort[0];
+document.getElementById('ag').innerHTML = numericSort[numericSort.length-1];
+
+var ah = Math.max.apply(null, numericSort);
+var ai = Math.min.apply(null, numericSort);
+document.getElementById('ah').innerHTML = ah;
+document.getElementById('ai').innerHTML = ai;
+
+function myArrayMax(arrayName) {
+ var len = arrayName.length
+ var max = -Infinity;
+ while (len--) {
+     if (arrayName[len] > max) {
+         max = arrayName[len];
+       }
+     }
+   return max;
+ }
+
+function myArrayMin(arrayName) {
+ var len = arrayName.length
+ var min = Infinity;
+ while (len--) {
+     if (arrayName[len] < min) {
+         min = arrayName[len];
+       }
+     }
+   return min;
+ }
+
+document.getElementById('aj').innerHTML = myArrayMax(numericSort);
+document.getElementById('ak').innerHTML = myArrayMin(numericSort);

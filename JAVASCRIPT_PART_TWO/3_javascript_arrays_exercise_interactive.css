@@ -1,0 +1,25 @@
+hr {
+  height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+  border: 0;
+}
+
+#first {
+  margin-top: 1.5em;
+  padding-top:0.5em;
+  padding-bottom: 0.5em;
+  background-color: rgba(173, 210, 231, 1);
+}
+
+#second{
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding-top:0.5em;
+  padding-bottom: 0.5em;
+  background-color: rgb(167, 209, 176);
+}
+
+#tableContent{
+  padding-left: 10em;
+  padding-right: 10em;
+}
