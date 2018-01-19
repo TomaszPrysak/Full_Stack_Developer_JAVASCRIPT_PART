@@ -117,3 +117,5 @@ function myArrayMin(arrayName) {
 
 document.getElementById('aj').innerHTML = myArrayMax(numericSort);
 document.getElementById('ak').innerHTML = myArrayMin(numericSort);
+
+document.getElementById('al').innerHTML = cities.indexOf("Kraków");

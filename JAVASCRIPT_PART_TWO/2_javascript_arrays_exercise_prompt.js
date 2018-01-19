@@ -4,17 +4,16 @@
 function addNew(){
   var studentName = prompt("Podaj imię studenta do dodania do listy:");
   studentsArray.push(studentName);
-  studentsArrayLen = studentsArray.length;
   menu();
 }
 
 // REMOVE STUDENT
 function remove(){
+  var studentsArrayLen = studentsArray.length;
   var studentName = prompt("Podaj imię studenta do usunięcia z listy:\n" + studentsArray);
   for (var i = 0; i < studentsArrayLen; i++) {
     if (studentsArray[i] == studentName) {
       studentsArray.splice(i,1);
-      studentsArrayLen = studentsArray.length;
       break;
     }
   }
@@ -55,7 +54,6 @@ function userChoice(choice){
 //////////////////////////
 // MAIN CODE OF APLICATION
 var studentsArray = [];
-var studentsArrayLen = studentsArray.length;
 var firstDecision = prompt('Witaj w aplikacji "Lista Studentów"\nZa pomocą naszej aplikacji możesz stworzyć listę studentów oraz ją modyfikować\nCzy chcesz włączyć aplikację ?\n(T)ak - przejdź dalej\n(N)ie - wyjdź z aplikacji');
 var fD = firstDecision.toLowerCase();
 while(fD != "t" && fD != "n"){

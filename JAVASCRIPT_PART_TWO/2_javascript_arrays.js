@@ -426,7 +426,6 @@ cities.forEach(printEach);
     }
 
     // Składnia funkcji szukającej wartości najmniejszej:
-
     function myArrayMin(arr) {
     var len = arr.length
     var min = Infinity;
@@ -437,3 +436,15 @@ cities.forEach(printEach);
         }
       return min;
     }
+
+// o) Zwracanie numeru indeksu elementu tablicy za pomocą indexOf():
+//    Metoda ta służy do zwracania numeru indeksu pod jakim znajduje się określony element tablicy.
+//    Bardzo pomocne jeżeli nie znamy indeksu a znamy elementu.
+//    W nawiasie metody podajemy element którego szukamy indeksu.
+//    UWAGA ! Jeżeli jest kilka elementów o takiej samej wartości to zwróci indeks pierwszego który wystepuje w tablicy.
+
+   // Składnia polecenia:
+   arrayName.indexOf(item);
+
+   // Przykład:
+   cities.indexOf("Żarnowiec");
