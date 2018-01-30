@@ -13,7 +13,7 @@ function display(){
   if (arrayListsLen > 0) {
     var text = '<p class="text-center">Twoja lista wygląda następująco:</p><table id="tableItem" class="table table-sm table-dark"><thead><tr><th scope="col">#</th><th scope="col">Item</th></tr></thead><tbody>';
     for (var i = 0; i < arrayListsLen; i++) {
-      text += '<tr><th scope="row">' + (i + 1) + '</th>' + '<td>' + arrayLists[i] + '</td></tr>';
+      text += '<tr><th scope="row">' + (i + 1) + '</th><td>' + arrayLists[i] + '</td></tr>';
     }
     text += '</tbody></table>'
     document.getElementById('tableContent').innerHTML = text;
@@ -45,6 +45,8 @@ function add(){
 
 function remove(){
   var x = document.getElementById('removeItem').value;
+  var y = arrayLists.indexOf(x);
+  console.log(y);
   if (x !== "") {
     for (var i = 0; i < arrayListsLen; i++) {
       if (arrayLists[i] == x) {
