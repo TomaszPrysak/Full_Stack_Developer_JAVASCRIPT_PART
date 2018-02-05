@@ -28,3 +28,10 @@ document.getElementById('h').innerHTML = Object.keys(car1);
 document.getElementById('i').innerHTML = car1.power;
 document.getElementById('j').innerHTML = car1.weightFullLoad;
 document.getElementById('k').innerHTML = car1.weightFullLoad();
+
+var text1 = "<ul>";
+for (var key in car1){
+  text1 += "<li>Do klucza: " + key + " przypisana jest wartość: " + car1[key] + "</li>";
+}
+text1 += "</ul>";
+document.getElementById('l').innerHTML = text1;

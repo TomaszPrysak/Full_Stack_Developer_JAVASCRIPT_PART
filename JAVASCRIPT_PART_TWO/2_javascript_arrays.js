@@ -114,7 +114,7 @@ var citiesLen = cities.length; // ponieważ length zwraca wartość więc częś
 for (var i = 0; i < cities.length; i++) {
   console.log(cities[i]);
 }
- // Pętla jest powtarzana taką ilość razy ile wynosi długość pętli pnieważ w miejscu warunku pętli for jest wstawione sprawdzanie czy zmienna pomocnicza i jest mniejsza od długości tablicy.
+ // Pętla jest powtarzana taką ilość razy ile wynosi długość tablicy ponieważ w miejscu warunku pętli for jest wstawione sprawdzanie czy zmienna pomocnicza i jest mniejsza od długości tablicy.
  // Użycie znaku "mniejsze" jest ważne ponieważ długość tablicy jest o jeden większa od ostatniego indeksu tablicy.
  // W każdym przebiegu pętli w nawias kwadratowy odwołujący się do elementu talbicy podstawiana jest pomocnicza zmienna i o wartości będącej z przedziału od 0 do wartośći równej ostatniemu indeksowi tablicy.
  // Dzięki temu pętla for przeiteruje i będzie miała dostęp do każdego elementu tablicy z osobna.

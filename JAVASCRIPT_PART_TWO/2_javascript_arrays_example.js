@@ -12,26 +12,26 @@ document.getElementById('d').innerHTML = cities;
 var citiesLen = cities.length;
 document.getElementById('e').innerHTML = citiesLen;
 
-text1 = "<ul>";
+var text1 = "<ul>";
 for (var i = 0; i < citiesLen; i++) {
   text1 += "<li>" + cities[i] + "</li>";
 }
 text1 += "</ul>"
 document.getElementById('f').innerHTML = text1;
 
-text2 = "<ul>";
+var text2 = "<ul>";
 for (var y of cities) {
   text2 += "<li>" + y + "</li>";
 }
 text2 += "</ul>";
 document.getElementById('g').innerHTML = text2;
 
-text3 = "<ul>"
+var text3 = "<ul>"
 function printEach(item){
   text3 += "<li>" + item + "</li>";
 }
-text3 += "</ul>"
 cities.forEach(printEach);
+text3 += "</ul>"
 document.getElementById('h').innerHTML = text3;
 
 // cities.push("Jędrzejów"); // dodanie nowego elementu, jednak poniżej dodatkowo, że dodajemy nowy element to jeszcze przypisujemy do zmiennej wynik polecenia, czyli nowa długość talbicy

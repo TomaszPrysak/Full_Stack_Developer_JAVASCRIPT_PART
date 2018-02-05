@@ -56,7 +56,6 @@ var car = {brand:"Fiat",
 // właściwości: Fiat, 500, red, 800, FUNCTION()
 
 // 2. Dostęp do kluczy i wartości/elementów do nich przypisanych w obiekcie.
-
 // Nie mamy możliwości wypisania każdej wartości obiektu za pomocą jednego polecenia.
 // Dostęp do każdej wartości/elementu z osobna przypisanego do danego klucza nastepuje porzez podanie nazwy obiektu i po kropce nazwy klucza do którego wartość/element został przypisany.
 // A więc musimy znać jakie klucze zostały zdefiniowane w obiekcie, aby później za ich pomocą odwołać się do wartości/elementów.
@@ -102,7 +101,6 @@ car1.fullName();
 // Z kolei jeżeli po nazwie metody nie poznawimy otwarcia i zamknięcia nwiasu "()" to po polecenie zwróci nam cały kod zapisany w funkcji jako ciąg znaków.
 
 // 3. Dodawanie nowych par "klucz:wartość" do obiektu.
-
 // W związku z tym, że nie w obiektach nie ma konkretnej kolejności par "klucz:wartość" w związku z tym nie dodajemu tutaj obiektów na początkum, na końcu czy gdzieś w środku.
 // Nową parę "klucz:wartość" do obiektu dodajemy w ten sposób, że najpierw podajemy nazwę obiektu, a następnie po kropce podajemy nowy klucz i po znaku równa się wartość temu kluczowi przypisaną.
 // Składnia dodawania nowej pary "klucz:wartosć"
@@ -132,3 +130,42 @@ function carFullLoad(){ // funkcja zdefiniowana jako osobna w kodzie programu
   return this.weight + (4*80) // "this" zwracające się do klucza obiektu do którego ta funkcja będzie przypisana
 }
 car1.weightWithPerson = carFullLoad; // przypisanie wcześniej stworzonej z do nowego klucza obiektu
+
+// 4. Iterowanie po parach "klucz:wartość" obiektu.
+// Stosując polecenie "Object.keys(objectName)" dostajemy możliwość wypisania za jednym razem kluczy obiektu.
+// Jeżeli przypiszemy do tego polecenia zmienną to klucze z danego obiektu będą elementami tablicy o nazwie zmiennej do której przypisaliśmy to polecenie.
+// Z koleim, jeżeli bedziemy za kazdym razem podawać nazwę obiektu i po kropce nazwę klucza wówczas mamy dostęp do wartości przypisanej do tego klucza.
+
+// Jeżeli byśmy chcielibyśmy mieć za każdym razem dostęp do każdej pary "klucz:wartość" posiłkujemy się iterowaniem przez obiekt za pomocą pętli for/in.
+// Poznajemy więc kolejną wersję pętli for. W wcześniej poznalismy standartdową pętlę for oraz specjalną pętlę stworzoną do tablic for/of.
+// Tablicę mogliśmy iterować zarówno za pomocą standardowej pętli for jak i dedykowanej for/of.
+
+// W przypadku obiektów musimy użyć tylko i wyłącznie pętli for/in.
+// Nie możemy użyć standardowej pętli for, ponieważ nie mamy polecenia które pozwoli nam określić ilość par "klucz:wartość". A dodatkowo nie wiemy w jakiej kolejności są te pary.
+// A jak wiemy pętla for posiada warunek który wykorzystujemy do inrkemenetacji zmiennej pomocniczej.
+// Jeżeli zmienna pomocnicza jest mniejsza, niż warunek wówczas jest ona inkrementowana(bądź dekrementaowana) i nastepuje kolejny przebieg pętli.
+// A skoro nie znamy ilości par "klucz:wartość" to posiłkujemy się pętlą for/in która dokładnie wie ile jest takich par i tyle razy zostanie wykonana.
+
+// Składnia pętli pętli for/in:
+for(var currentKey in objectName){
+  currentKey;
+}
+// W pętli tej posiłkujemy się zmienną pomocniczą currentKey do której za każdym przebiegiem pętli jest przypisywany klucz obiektu.
+// A następnie tą zmienną podstawiamy do poleceń które pozwola nam wykonać polecenia i otrzymać klucz bądź wartość do niego przypisaną.
+
+// Na przykład:
+
+for(var key in car1){
+  console.log("Do klucza: "key + " przypisana jest wartość: " + car1.key);
+}
+
+// UWAGA ! W przypadku interowania za pomocą pętli for/in aby mieć dostęp do wartości przypisanej do klucza obiektu musimy odwołać się do niego za pomocą nazwy obiektu i nawiasu kwadratowego:
+//         objectName[key].
+//         W pętli nie możemy używać odwołania się do wartości poprzez notację kropkową !
+//         objectName.key - NIE zadziała w pętli. Ponieważ jest tutaj problem ze zmienną pomocniczą.
+
+// Iterować możemy również za pomocą pętli for/each.
+// Aby więcej o tym się dowiedzieć, poszukaj w internecie.
+
+// 5. Słowo kluczowe "this".
+// ...
