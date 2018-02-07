@@ -17,17 +17,19 @@ document.getElementById('d').innerHTML = car1.color;
 document.getElementById('e').innerHTML = car1.weight;
 document.getElementById('f').innerHTML = car1.fullName;
 
+car1.model = "Tipo";
+document.getElementById('m').innerHTML = car1.model;
+
 document.getElementById('g').innerHTML = car1.fullName();
 
 car1.power = 50;
-function weightWith4Person(){
+car1.weightWith4Person = function(){
   return this.weight + (4*80)
 };
-car1.weightFullLoad = weightWith4Person;
 document.getElementById('h').innerHTML = Object.keys(car1);
 document.getElementById('i').innerHTML = car1.power;
-document.getElementById('j').innerHTML = car1.weightFullLoad;
-document.getElementById('k').innerHTML = car1.weightFullLoad();
+document.getElementById('j').innerHTML = car1.weightWith4Person;
+document.getElementById('k').innerHTML = car1.weightWith4Person();
 
 var text1 = "<ul>";
 for (var key in car1){

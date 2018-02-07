@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		span{
+			font-weight: bold;
+		}
+	</style>
+	<body>
+		<h2>Ćwiczenia z obiketów w JavaScript</h1>
+		<p>Mamy obiekt <b>employee</b> zawierający następujące pary "klucz:wartość":</p>
+		<ul>
+			<li><b>name:"John Smith"</b></li>
+			<li><b>job:"Programmer"</b></li>
+			<li><b>age: 31</b></li>
+		</ul>
+		<h3>Zadanie 1</h3>
+		<p>Dla powyższego obiektu należy dodać metodę która będzie zwracać długość ciągu znaków zapisanych w kluczu <b>name</b></p>
+		<button onclick="nameLen()" type="button">Wyświetl długośc imienia zapisanegow w obiekcie</button>
+		<p>Rozwiązanie: <span id="resultExercise1"></span></p>
+		<h3>Zadanie 2</h3>
+		<p>Dla powyższego obiektu należy wyświetlic alert z informacjami o każdej parze "klucz:wartość"</p>
+		<p>Gdzie klucz będzie oznaczać cechę a wartość to co do niego jest przypisane</p>
+		<button onclick="loopForInObjectEmployee2()" type="button">Wyświetl alert z zawartością obiektu</button>
+		<h3>Zadanie 3</h3>
+		<p>Dla powyższego obiektu należy dodać metodę która będzie zwracać <b>TYLKO nazwisko</b> z całej wartości przypisanej do <b>klucza name</b></p>
+		<script src="3_javascript_objects_exercise.js" charset="utf-8"></script>
+		<button onclick="lastNameShow()" type="button">Wyświetl nazwisko zapisane w kluczu name</button>
+		<p>Rozwiązanie: <span id="resultExercise3"></span></p>
+	</body>
+</html>

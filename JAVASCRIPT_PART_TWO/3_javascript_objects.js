@@ -89,6 +89,13 @@ objectName["key"];
 
 car1["model"];
 
+// Jeżeli chcemy zmienić wartość dla danego klucza to wystarczy po odwołaniu się do danego klucza postawić znak równa się i przypisam mu nową wartość.
+// Jest to bardzo podobne do dodawania nowej pray "klucz:watość". Jednak w tym wypadku posługujemy się kluczem już istniejącym.
+// Składnia zmiany wartości przypisanej do klucza:
+objectName.key = newValue;
+objectName["key"] = newValue;
+
+// 3. Dostęp do kluczy i metod do nich przypisanych.
 // Troche inaczej sytuacja wygląda ze zdefiniowanymi metodami w obiekcie.
 // Jeżeli za pomocą sposobu z kropką chcemy wywołać metodę przypisaną do klucza to musimy zapis skończyć za pomocą otwartego i zamkniętego nawiasu "()".
 
@@ -98,11 +105,11 @@ objectName.method();
 
 car1.fullName();
 
-// Z kolei jeżeli po nazwie metody nie poznawimy otwarcia i zamknięcia nwiasu "()" to po polecenie zwróci nam cały kod zapisany w funkcji jako ciąg znaków.
+// UWAGA ! Z kolei jeżeli po nazwie metody nie poznawimy otwarcia i zamknięcia nwiasu "()" to po polecenie zwróci nam cały kod zapisany w funkcji jako ciąg znaków.
 
-// 3. Dodawanie nowych par "klucz:wartość" do obiektu.
+// 4. Dodawanie nowych par "klucz:wartość" do obiektu.
 // W związku z tym, że nie w obiektach nie ma konkretnej kolejności par "klucz:wartość" w związku z tym nie dodajemu tutaj obiektów na początkum, na końcu czy gdzieś w środku.
-// Nową parę "klucz:wartość" do obiektu dodajemy w ten sposób, że najpierw podajemy nazwę obiektu, a następnie po kropce podajemy nowy klucz i po znaku równa się wartość temu kluczowi przypisaną.
+// Nową parę "klucz:wartość" do obiektu dodajemy w ten sposób, że najpierw podajemy nazwę obiektu, a następnie po kropce podajemy nazwę klucz i po znaku równa się wartość temu kluczowi przypisaną.
 // Składnia dodawania nowej pary "klucz:wartosć"
 
 objectName.newKey = value;
@@ -116,22 +123,25 @@ objectname["newKey"] = value;
 car1.power = 50;
 car1["torque"] = 88;
 
-// UWAGA ! Jeżeli chcemy dodać nową parę "klucz:metoda" wówczas sytuacja wygląda troche inaczej.
-//         Najpierw musimy zdefiniować nową funkcję jako osobną funkcje w kodzie. Jednak musimy pamiętać, aby funkcja ta zawierała słówko "this" i odnosiła się do jakiegoś innego klucza z tego obiektu którego bedzie dotyczyła ta metoda. Oczywiście jeżeli chcemy, aby metoda dokonywała czegoś z wartościami przypisanymi do jakiegoś klucza.
-//         Pomimo, że funkcja ta jest definiowana jako osobna w kodzie to wiemy, że będzie przpisana do obiektu dlatego używmay "this" z kluczem któyry w tym obiekcie wystepuje.
-//         Następnie tworzymy nowy klucz do obiektu (za pomocą powyższego sposobu) i przypisyjemy my nazwę stworzonej wcześniej funkcji.
-//         Wywołujemy metodę tak jak byłaby ona stworzona w definicji obiektu na samym początku. Czyli po nazwie obiektu i kropce podajemy nazwę nowej metody wraz z dwoma nawiasami, otwartym i zamkniętym "()".
-//         Z koeli jeżeli będziemy chcieli zwrócić definicję nowej funkcji, czyli jej kod źródłowy to po nazwie obiektu i kropce podajemy nazwę klucza. Ale nie kończymy już nawiasami "()".
-//         Pomimo, że funkcja została zdefiniowana jako osobna funkcja i tylko jej nazwia została przypisana do nowego klczua obiektu, to i tak zostanie wypisany jej kod źródłowy.
+// 5. Dodawanie nowych par "klucz:metoda" do obiektu.
+// Sposób dodawania pary "klucz:metody" jest bardzo podobny do tej której używaliśmy w przypadku dodawania pary "klucz:wartość"
+// Nową metodą do istniejącego już obiektu dodajemy w ten sposób, że najpierw podajemy nazwę obiektu, a nastepnie po kropce nazwę klucza do którego metoda będzie przypisana.
+// I tutaj pojawia się różnica. Mianowicie następnie po znaku równa się podajemy słowo kluczowe "function()" i w nawiasie klamrowym definicję funkcji.
+// Składnia dodawania nowej pary "klucz:metoda":
+
+objectName.newKey = function(){
+  definicja funkcji
+}
 
 // Przykład:
 
-function carFullLoad(){ // funkcja zdefiniowana jako osobna w kodzie programu
+car1.weightWith4Person = function(){ // funkcja zdefiniowana jako osobna w kodzie programu
   return this.weight + (4*80) // "this" zwracające się do klucza obiektu do którego ta funkcja będzie przypisana
 }
-car1.weightWithPerson = carFullLoad; // przypisanie wcześniej stworzonej z do nowego klucza obiektu
 
-// 4. Iterowanie po parach "klucz:wartość" obiektu.
+// UWAGA ! Słówko kluczowe "this" w definicji funkcji będzie omawiane przy okazji programowania obiektowego w punkcie 7.
+
+// 6. Iterowanie po parach "klucz:wartość/klucz:metoda" obiektu.
 // Stosując polecenie "Object.keys(objectName)" dostajemy możliwość wypisania za jednym razem kluczy obiektu.
 // Jeżeli przypiszemy do tego polecenia zmienną to klucze z danego obiektu będą elementami tablicy o nazwie zmiennej do której przypisaliśmy to polecenie.
 // Z koleim, jeżeli bedziemy za kazdym razem podawać nazwę obiektu i po kropce nazwę klucza wówczas mamy dostęp do wartości przypisanej do tego klucza.
@@ -147,25 +157,26 @@ car1.weightWithPerson = carFullLoad; // przypisanie wcześniej stworzonej z do n
 // A skoro nie znamy ilości par "klucz:wartość" to posiłkujemy się pętlą for/in która dokładnie wie ile jest takich par i tyle razy zostanie wykonana.
 
 // Składnia pętli pętli for/in:
-for(var currentKey in objectName){
+for (var currentKey in objectName){
   currentKey;
 }
 // W pętli tej posiłkujemy się zmienną pomocniczą currentKey do której za każdym przebiegiem pętli jest przypisywany klucz obiektu.
 // A następnie tą zmienną podstawiamy do poleceń które pozwola nam wykonać polecenia i otrzymać klucz bądź wartość do niego przypisaną.
+// Zmienną pomocniczą możemy nazwać jak nam sie podoba. Tak jak ją nazwiemy później musimy takiej nazwy używać wewnątrz petli.
+// Dla ułatwienia najlepiej ją nazwać tak jak w przykładzie lub podobnie tak aby kojarzyła się z kluczami obiektów.
 
 // Na przykład:
 
-for(var key in car1){
+for (var key in car1){
   console.log("Do klucza: "key + " przypisana jest wartość: " + car1.key);
 }
 
 // UWAGA ! W przypadku interowania za pomocą pętli for/in aby mieć dostęp do wartości przypisanej do klucza obiektu musimy odwołać się do niego za pomocą nazwy obiektu i nawiasu kwadratowego:
 //         objectName[key].
-//         W pętli nie możemy używać odwołania się do wartości poprzez notację kropkową !
-//         objectName.key - NIE zadziała w pętli. Ponieważ jest tutaj problem ze zmienną pomocniczą.
+//         W pętli nie możemy używać odwołania się do wartości poprzez notację kropkową, objectName.key - NIE zadziała w pętli. Ponieważ jest tutaj problem ze zmienną pomocniczą.
 
 // Iterować możemy również za pomocą pętli for/each.
 // Aby więcej o tym się dowiedzieć, poszukaj w internecie.
 
-// 5. Słowo kluczowe "this".
-// ...
+// 7. Programowanie obiektowe.
+//
