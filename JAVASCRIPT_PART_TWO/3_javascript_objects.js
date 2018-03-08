@@ -44,11 +44,12 @@ var objectName = {
 //        Z kolei wartości które przypisujemy kluczom mogą być różnego typu: numeryczne, ciągi znaków, logiczne itd. Wówczas musimy je zapisywac tak jak się je zapisuje. Ciągi znaków w cudzysłów itd.
 
 // Na przykład:
-var car = {brand:"Fiat",
-           model:"500",
-           color:"red",
-           weight:800,
-           fullName:function(){
+var car = {
+						 brand:"Fiat",
+						 model:"500",
+						 color:"red",
+						 weight:800,
+						 fullName:function(){
              return this.barand + " " + this.model;
            }
          }
@@ -108,8 +109,8 @@ car1.fullName();
 // UWAGA ! Z kolei jeżeli po nazwie metody nie poznawimy otwarcia i zamknięcia nwiasu "()" to po polecenie zwróci nam cały kod zapisany w funkcji jako ciąg znaków.
 
 // 4. Dodawanie nowych par "klucz:wartość" do obiektu.
-// W związku z tym, że nie w obiektach nie ma konkretnej kolejności par "klucz:wartość" w związku z tym nie dodajemu tutaj obiektów na początkum, na końcu czy gdzieś w środku.
-// Nową parę "klucz:wartość" do obiektu dodajemy w ten sposób, że najpierw podajemy nazwę obiektu, a następnie po kropce podajemy nazwę klucz i po znaku równa się wartość temu kluczowi przypisaną.
+// W związku z tym, że w obiektach nie ma konkretnej kolejności par "klucz:wartość" w związku z tym nie dodajemu tutaj obiektów na początku, na końcu czy gdzieś w środku. Tak jak ma to miejsce w tablicach.
+// Nową parę "klucz:wartość" do obiektu dodajemy w ten sposób, że najpierw podajemy nazwę obiektu, a następnie po kropce podajemy nazwę klucza i po znaku równa się wartość temu kluczowi przypisaną.
 // Składnia dodawania nowej pary "klucz:wartosć"
 
 objectName.newKey = value;
@@ -178,5 +179,70 @@ for (var key in car1){
 // Iterować możemy również za pomocą pętli for/each.
 // Aby więcej o tym się dowiedzieć, poszukaj w internecie.
 
-// 7. Programowanie obiektowe.
+//////////////////////////////
+// 7. PROGRAMOWANIE OBIEKTOWE
+//////////////////////////////
+// Do tej pory tworzyliśmy obiekty z odpowiednimi parami klucz:wartość.
+// Następnie dodawaliśmy nowe pary klucz:wartość jak i modyfikowaliśmy wartości już przypisane kluczom.
+// Nauczyliśmy się, również tworzyć funkcje bezpośrednio w obiekcie bądź po późniejszym stworzeniu pary klucz:metoda.
+// Właśnie funkcje wykorzystujące obiekty nazywane są metodami.
+// Teraz czas na programowanie obiektowe.
+
+// 7.1 Słówko kluczowe "this"
+// Słowo kluczewego "this" mozna używać w treści metody, aby odwołać sie do obiektu, przez który metoda ta jest właśnie wywoływana.
+// Daje nam to możliwość tworzenia uniwersalnych metod, które będą działać dla każdego bliźniaczego obiektu który stworzymy. Zawierającego ten sam klucz, ktory będzie wymagany przez metode.
+// Nie będziemy musieli podawać nazwy obiektu tylko odwołamy się do niego poprzez "this"
+// Wykorzystanie słówka kluczowego "this" w definicji takiej uniwersalnej metody jest następujące:
+
+function metdhodName(){
+	console.log(this.key1 + " lorem impsum " + this.key2);
+}
+
+// Powyższa definicja metody spowoduje, że niezależnie przez jaki obiekt zostanie ona wywołana, wówczas wyświetli w konsoli przeglądarki wartości tego obiektu przypisane do kluczy "key1" oraz "key2".
+// Oczywiście obiekt taki musi zawierać klucze użyte w definicji metody. Wiadomo równiez, że powyższy to jest przykład. Możemy na rózny sposób wykorzystywać klucze z obiektów.
+// Nastepnie musimy taką metodę dodać do obiektu jako nową parę "klucz:metoda". Bądź podczas tworzenia obiektu od razu zdefiniować taką parę "klucz:metoda".
+// Na początku jeżeli stworzyliśmy obiekty a później chcemy dodać metodę to tylko zrobimy to poprzez nową parę "klucz:metoda".
+// Minus takiego dodawania jest taki, że jeżeli mamy już duzo obiektów tego samego typu to musielibyśmy do każdego dodać nową parę "klucz:metoda" z interesującą nas metodą.
+// Aby tego uniknąc póxniej poznamy konstruktory do tworzenia obiektów.
+
+// Przykład wykorzystania.
+// Mamy dwa obiekty, opisujące zwierzęta:
+
+var pies = {
+						name:"Tina",
+						age:2,
+						color:"biało-brązowy",
+						sound:"hau hau"
+}
+
+var kot = {
+					 name:"Mruczek",
+					 age:6,
+					 color:"czarny",
+					 sounr:"miau miau"
+}
+
+// Następnie tworzymy uiwersalną metodę która może być wykorzystywana przez obydwa obiekty:
+
+function introdaction(){
+	console.log(this.sound "! Wabię się " + this.name);
+}
+
+// Teraz dodajemy tą metodę do obu obiektów:
+
+pies.speak = introdaction;
+kot.speak = introdaction;
+
+// Wywołanie metody:
+
+pies.speak();
+kot.speak();
+
+// W powyższym przykładzie funkcja "introduction" powoduje wyświetlanie komunikatu zawierającego rodzaj dźwięku (this.sound) jaki zwierze wydaje oraz jego imienia (this.name).
+// Użycie słowa kluczowego "this" powoduje, że imie i dźwięk wydawany prez zwierze dotyczy tego obiektu na ktorym wywołujemy metodę.
+// Gdy wywołujemy tą metodę pies.speak() z obiektu pies to pobiera ona dwie  dwiw właściwości: this.sound(czyli: "hau hau") i this.name (czyli: "Tina").
+// Tej samej funkcji "speak" możemy używac jako metody również w innych obiektach. Np własnie w drugim naszym obiekcie "kot"
+// Powyzsze powoduje, że metody są współdzielone przez wiele obiektów tego samego typu.
+
+// 7.2 Tworzenie obiektów za pomocą konstruktorów
 //
