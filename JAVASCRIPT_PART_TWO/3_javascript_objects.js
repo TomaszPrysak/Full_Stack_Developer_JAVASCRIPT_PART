@@ -233,7 +233,56 @@ function introdaction(){
 pies.speak = introdaction;
 kot.speak = introdaction;
 
+// UWAGA ! Powyższy przykład tworzenia obiektów i dodawania do nich metody jest poprawny jednak nie ekonomiczy.
+//				 Ponieważ najpierw tworzymy obiekt, później tworzymy metodę a na końcu dodajemy nową parę klucz:metoda do obiektu.
+//				 Lepszą praktyką (poza używaniem konstruktorów) jest stworzenie metody na początku, a nastepnie podczas definiowania obiektu umieścić paprę klucz:metoda.
+//				 Para ta będzie sie odwoływać do metody stworzonej na początku
+//				 Jest to ekonomiczniej bo nie musimy dodawać do już stworzonego obiektu nowej pary klucz:metoda
+
+var pies = {
+						name:"Tina",
+						age:2,
+						color:"biało-brązowy",
+						sound:"hau hau"
+}
+
+var kot = {
+					 name:"Mruczek",
+					 age:6,
+					 color:"czarny",
+					 sounr:"miau miau"
+}
+
+// Najpierw tworzymy metodę ktorą będzieny używać w naszych obiektach
+
+function introdaction(){
+	console.log(this.sound "! Wabię się " + this.name);
+}
+
 // Wywołanie metody:
+
+pies.speak();
+kot.speak();
+
+// Następnie definiując nasze obiekty od razu tworzymy parę klucz:metoda w której odwołujemy się do metody zewnętrznej, czyli tej co wcześniej stworzyliśmy.
+
+var pies = {
+						name:"Tina",
+						age:2,
+						color:"biało-brązowy",
+						sound:"hau hau",
+						speak:introdaction
+}
+
+var kot = {
+					 name:"Mruczek",
+					 age:6,
+					 color:"czarny",
+					 sounr:"miau miau",
+					 speak:introdaction
+}
+
+// Wywołanie metody nastąpuje w taki sam sposób jak w pierwszym sposobie:
 
 pies.speak();
 kot.speak();
@@ -245,4 +294,55 @@ kot.speak();
 // Powyzsze powoduje, że metody są współdzielone przez wiele obiektów tego samego typu.
 
 // 7.2 Tworzenie obiektów za pomocą konstruktorów
-//
+// Tworząc obiekty w ten sposób, że za każdym razem definiujemy ich pary klucz:wartość/metod jest całkowicie poprawne.
+// Jednak jest ono nieefektowne jeżeli mamy takich obiektów stworzyć bardzo dużo.
+// Powtarzanie za każdym razem pełnej definicji obiektu jest żmudne szczególnie jeżeli mamy tworzy wiele obiektów tego samego typu.
+
+// Aby uniknąć pisania za każdym razem całej definicji obiektu z pomocą przychodzą nam konstruktory.
+// Konstruktor to taka funkcja, forma, szablon który definiujemy tylko raz i odpowiada strukturze obiektu który bedziemy chcieli za pomocą niego tworzyć.
+// Po jego skonfigurowaniu możemy tworzyć dowolną ilość tych samych obiektów o podobnych podstawowych właściwościach.
+
+// Konstrukcja konstruktora jest bardzo podobna do funkcji.
+// Po słowie "function" nastepuje nazwa konstruktora a następnie w nawiasie argumenty które będziemy przekazwyać do niego, tworząc nowy obiekt.
+// Argumenty te będą odpowiadać wartością jakie będą przypisane kluczom wystepującym w konstruktorze. Tak jakbyśmy sami definiowali
+// Budowa konstruktora:
+
+function ConstructorsName(arg1, arg2, arg3, arg4="xxx"){
+	this.key1 = arg1,
+	this.key2 = arg2,
+	this.key3 = arg3,
+	this.key4 = arg4
+}
+
+// Ponieważ konstruktor to funkcja wiec możemy go tworzyć tak jak powyżej lub zapis drugi:
+
+var ConstructorsName = function(arg1, arg2, arg3, arg4="xxx"){
+	...
+}
+
+// Każde wywłanie konstruktora skutkuje utworzeniem obiektu z wbudowanymi właściwościami. Żeby wywołać normalną funkcję a za nią parę nawiasów, z argumentem bądź bez.
+// W przypadku wywołania konstruktora przy tworzeniu nowego obiektu jest nastepująca składnia:
+
+var newObject1 = new ConstructorsName(arg1, arg2, arg3, arg4); // w tym wypadku nadpisujemy wartość arg1
+var newObject2 = new ConstructorsName(arg1, arg2, arg3); // w tym wypadku wartość arg4 jest domyślna
+
+// Po prostu "new" oznacza, chcemy funkcji użyć jako konstruktora.
+// Słówko kluczowe "new" i nazwa konstrukora oznacza, że tworzymy nowy obiekt z użyciem danego konstruktora.
+
+// BARDZO WAŻNE !
+// W przypadku konstruktorów bardzo ważne jest słówko "this".
+// Ma ono zastosowanie bardzo podobne jak w przyoadku metod.
+// Tutaj właśnie powoduje ono, że nasz konstruktor jest uniwersalny.
+// Tworząc nowy obiekt słówko "this" zawsze bedzie przypisywać do klucza wartość argumentu jaki podamy przy danym nowo tworzonym obiekcie.
+// Za każdym razem słówko to będzie przypisywać do klucza wartości z aktualnie tworzonego obiektu.
+
+// OGÓLNIE "THIS" ODNOSI SIĘ ZAWSZE DO OBIEKTU KTÓRY WYWOŁUJE POLECENIE ZAWIERAJĄCE "THIS".
+
+// Przykład tworzenia obiektów z wykorzystaniem konstruktorów.
+// Stworzymy konstruktor do obiketow typu auto.
+
+function Auto(marka, model, rocznik){
+	this.marka = marka;
+	this.model = model;
+	this.rocznik = rocznik;
+}
