@@ -22,11 +22,22 @@
 			</ul>
 		</p>
 		<h4>Konstruktory</h4>
-		<!-- <p>Dodanie nowej pary "klucz:wartość" (car1.power = 50) oraz (car1.weightWith4Person). Więc teraz obiekt posiada następujące klucze(Object.keys(car1)): <span id="h"></span></p>
-		<p>Wartość nowego klucza power jest nastepująca (car1.power): <span id="i"></span></p>
-		<p>Z kolei, kluczowi weightFullLoad została przypisana metoda, której definicja jest nastepująca (car1.weightWith4Person): <span id="j"></span></p>
-		<p>Rezultat działania tej nowej funkcji jest następujący (car1.weightWith4Person()): <span id="k"></span></p>
-		<p>Iterowanie przez obiekt za pomocą dedykowanej pętli dla obiektów <b>for/in:</b><span id="l"></span></p> -->
+		<p>Stworzyliśmy konstruktor <span>Auto</span> o nastepujących polach <span id="f"></span></p>
+		<p>Z wykorzystaniem konstrukrotra stworzyliśmy obiekt <span>skodaFelicia</span> poprzez definicję: var skodaFelicia = new Auto("Skoda", "Felicia", 2001, 15000);</p>
+		<p>Obiekt ten posiada następujące pary:<span id="g"></span></p>
+		<p>Obiekt zawiera dwie metody: <span>reklama</span> oraz <span>zmianaCeny</span> natomiast <span>cenaBrutto</span> jest wyliczana na podstawie ceny netto.</p>
+		<p>Metoda <span>reklama</span> zwraca nam tekst: <span id="h"></span>.</p>
+		<p>Natomiast metoda <span>zmianaCeny</span> pozwala nam nadpisać wartość ceny, zdefiniowanej podczas tworzenia obiektu, na nowa cenę.<br>
+		Wywołując tę metodę z nowym argumentem (skodaFelicia.zmianaCeny(10000);) będącym nowa ceną 10000<br>
+		Dostajemy nowe wartości ceny netto: <span id="i"></span> gdzie poprzednia cena wynosiła: <span id="k"></span><br>
+		Dostajemy nowe wartości ceny brutto: <span id="l"></span> gdzie poprzednia cena wynosiła: <span id="m"></span> </p>
+		<p>Ponieważ obiekt <span>skodaFelicia</span> już istnieje możemy dodać do niego nową parę klucz:wartość (skodaFelicia.nrSeryjny = "1111";), która tam zwróci (skodaFelicia.nrSeryjny;): <span id="n"></span></p>
+		<h4>Prototypy</h4>
+		<p>Za pomocą właśicowsci "prototype" do konstruktora Auto dodaliśmy nową metodą (Auto.prototype.rabat = function(){return this.cenaBrutto() * 0.9};)</p>
+		<p>Wywołanie nowej metody (skodaFelicia.rabat();) daje nam cenę brutto samochodu po rabacie: <span id="o"></span> </p>
+		<p>Rownież za pomocą właśicowsci "prototype" do konstruktora Auto dodaliśmy nową wartość stałą (Auto.prototype.krajProdukcji = "Czechy";)</p>
+		<p>Wywołanie nowej wartości (skodaFelicia.krajProdukcji;) zwróci nam kraj produkcji samochodu: <span id="p"></span>.<br>
+			Należy pamiętać, że dla każdego obiektu stworzonego przez konstrukto <span>Auto</span> właściwość .krajProdukcji będzie taka sama.</p>
 		<script src="3_javascript_objects_oriented_programming.js" charset="utf-8"></script>
 	</body>
 </html>

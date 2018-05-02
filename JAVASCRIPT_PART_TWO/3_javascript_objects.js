@@ -63,6 +63,7 @@ var car = {
 // Do wyświetlenia kluczy zdefiniowanyuch w obiekcie służy następująca składnia:
 
 Object.keys(objectName);
+
 // wówczas dostajemy po przecinku wypisane klucze użyte w definicji obiektu
 // Uwaga ! Jeżeli przypisalibyśmy to polecenie do jakiejś zmiennej wówczas otrzymamy tablicę z kluczami jako elementy tablicy.
 
@@ -93,6 +94,7 @@ car1["model"];
 // Jeżeli chcemy zmienić wartość dla danego klucza to wystarczy po odwołaniu się do danego klucza postawić znak równa się i przypisam mu nową wartość.
 // Jest to bardzo podobne do dodawania nowej pray "klucz:watość". Jednak w tym wypadku posługujemy się kluczem już istniejącym.
 // Składnia zmiany wartości przypisanej do klucza:
+
 objectName.key = newValue;
 objectName["key"] = newValue;
 
@@ -169,7 +171,7 @@ for (var currentKey in objectName){
 // Na przykład:
 
 for (var key in car1){
-  console.log("Do klucza: "key + " przypisana jest wartość: " + car1.key);
+  console.log("Do klucza: "key + " przypisana jest wartość: " + car1[key]);
 }
 
 // UWAGA ! W przypadku interowania za pomocą pętli for/in aby mieć dostęp do wartości przypisanej do klucza obiektu musimy odwołać się do niego za pomocą nazwy obiektu i nawiasu kwadratowego:
@@ -305,14 +307,47 @@ kot.speak();
 // Konstrukcja konstruktora jest bardzo podobna do funkcji.
 // Po słowie "function" nastepuje nazwa konstruktora a następnie w nawiasie argumenty które będziemy przekazwyać do niego, tworząc nowy obiekt.
 // Argumenty te będą odpowiadać wartością jakie będą przypisane kluczom wystepującym w konstruktorze. Tak jakbyśmy sami definiowali
+
+// Należy zwrócic uwage, że w definicji konstruktora są znaki "=" pomiędzy kluczami a wartościami/metodami.
+// Natomiast definiując nowy obiekt bez konstruktora to są znaki ":" pomiędzy kluczami a wartościami/metodami.
+
 // Budowa konstruktora:
 
 function ConstructorsName(arg1, arg2, arg3, arg4="xxx"){
-	this.key1 = arg1,
-	this.key2 = arg2,
-	this.key3 = arg3,
-	this.key4 = arg4
+	this.key1 = arg1;
+	this.key2 = arg2;
+	this.key3 = arg3;
+	this.key4 = arg4;
+	this.key5 = (this.key2 * this.key3) / this.key4;
+	this.keyFunction1 = function(){
+		return this.key1 + " " + this.key2
+	};
+	this.changeKey1 = function(newKey1Value){
+		this.key1 = newKey1Value;
+	}
 }
+
+// UWAGA !!!
+
+// Podczas definiowania konstruktora musi on zawierać wszystkiej pary klucz:wartość jakie chcemy aby konstruktor posiadał
+// Nie mam możliwości dodawania nowej pary klucz:wartość do już stworzonego konstruktora tak jak ma to miejsce w przypadku dodawania takiej pary do już istniejącego obiektu.
+// A więc taki zapis jet błędny !!!!!!:
+
+ConstructorsName.newKey = "something"; // ZAPIS BŁĘDNY
+
+// Powyższe tyczy się rownież par klucz:metoda.
+// Aby konstruktor zawierał jakaś metodę (zwracajacą jakąs wartość bądź coś obliczającą, nieważne)
+// to definicja tej metody musi być zdefiniowana razem z konstruktorem.
+// Nie można dodawać pary klucz:metoda do już istniejącego konstruktora tak jak ma to miejsce w przypadku dodawania takiej pary do już istniejącego obiektu.
+// A więc taki zapis jest błędny !!!!:
+
+ConstructorsName.newkeyFunction = function(){ // ZAPIS BŁĘDNY
+	return this.newkeyFunction " smoething" // ZAPIS BŁĘDNY
+} // ZAPIS BŁĘDNY
+
+// Natomiast powyższe nie ma zastosowania, jeżeli obiekt jakiś obiekt już stworzymy.
+// Wówczas TYLKO do tego jednego obiektu mamy możliwość dodania nowej pary klucz:wartość jak i klucz:metoda.
+// Dokonujemy tego tak jak wcześniej się uczylismy w rozdziałach: 4 i 5.
 
 // Ponieważ konstruktor to funkcja wiec możemy go tworzyć tak jak powyżej lub zapis drugi:
 
@@ -331,7 +366,7 @@ var newObject2 = new ConstructorsName(arg1, arg2, arg3); // w tym wypadku warto�
 
 // BARDZO WAŻNE !
 // W przypadku konstruktorów bardzo ważne jest słówko "this".
-// Ma ono zastosowanie bardzo podobne jak w przyoadku metod.
+// Ma ono zastosowanie bardzo podobne jak w przypadku metod.
 // Tutaj właśnie powoduje ono, że nasz konstruktor jest uniwersalny.
 // Tworząc nowy obiekt słówko "this" zawsze bedzie przypisywać do klucza wartość argumentu jaki podamy przy danym nowo tworzonym obiekcie.
 // Za każdym razem słówko to będzie przypisywać do klucza wartości z aktualnie tworzonego obiektu.
@@ -341,8 +376,45 @@ var newObject2 = new ConstructorsName(arg1, arg2, arg3); // w tym wypadku warto�
 // Przykład tworzenia obiektów z wykorzystaniem konstruktorów.
 // Stworzymy konstruktor do obiketow typu auto.
 
-function Auto(marka, model, rocznik){
+function Auto(marka, model, rocznik, cenaNetto){
 	this.marka = marka;
 	this.model = model;
 	this.rocznik = rocznik;
+	this.cenaNetto = cenaNetto;
+	// this.cenaBrutto = this.cenaNetto * 1.23;
+	this.cenaBrutto = function(){
+		return this.cenaNetto * 1.23
+	};
+	this.reklama = function(){
+		return this.marka + " " + this.model + " z rocznika " + this.rocznik + " kosztuje " + this.cenaNetto + " zł netto a brutto " + this.cenaBrutto + " zł";
+	};
+	this.zmianaCeny = function(nowaCenaNetto){
+		this.cenaNetto = nowaCenaNetto;
+	};
 }
+
+// Teraz stworzymy dwa obiekty typu auto:
+
+var skodaFelicia = new Auto("Skoda", "Felicia", 2001, 15000);
+
+// 7.3 Propotypy
+// W poprzednim rozdziale się nauczylismy, że do stworzonego już konstruktora nie możemy dodawać nowych par klucz:wartość oraz klucz:metoda.
+// W JavaScript wszystkie obiekty dziedziczą wartości i metody od prototypów.
+// Prototypy JavaScript ułatwiają współdzielnie metod, wartości przez rózne obiekty.
+// Wszystkie konstruktory (zarówno te standardowe będące z góry w JavaScript jak i te które sami stworzylismy) maja właściwość "prototype".
+// Poprzez tą właściwość możemy dodawać metode bądź wartość do konstrutkora która będzie współdzielona przez obikety stworzone przez ten konstruktor.
+
+// Składnia dodawania metody bądź wartości do właściwości "prototype":
+
+ConstructorsName.prototype.newFunction = function(){
+	// code of function
+}
+
+ConstructorsName.prototype.newKey = "string";
+
+// Przykład z wykorzystaniem konstrukotra Auto z poprzedniego podrozdziału:
+Auto.prototype.rabat = function(){
+	return this.cenaBrutto() * 0.9
+};
+
+Auto.prototype.krajProdukcji = "Czechy";
